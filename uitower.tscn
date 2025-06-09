@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://dm05y3wlgtuyx"]
+
+[node name="uitower" type="Panel"]
+metadata/_custom_type_script = "uid://crh00vhn1yank"

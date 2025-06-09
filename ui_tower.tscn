@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3g84pk8ivae0"]
+
+[ext_resource type="Script" uid="uid://br3bdx886sbpv" path="res://ui_tower.gd" id="1_5xvpy"]
+[ext_resource type="Texture2D" uid="uid://decqjoormnhbl" path="res://playerproj.png" id="2_5xvpy"]
+
+[node name="UITower" type="Panel"]
+custom_minimum_size = Vector2(16, 16)
+offset_right = 16.0
+offset_bottom = 16.0
+script = ExtResource("1_5xvpy")
+metadata/_custom_type_script = "uid://crh00vhn1yank"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 8)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_5xvpy")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

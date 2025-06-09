@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://3giwnuriailu"]
+
+[ext_resource type="Script" uid="uid://b4vkgk8ym524i" path="res://base.gd" id="1_8rhti"]
+[ext_resource type="PackedScene" uid="uid://cdr1xxjl721uj" path="res://towertest.tscn" id="2_3vi8l"]
+[ext_resource type="PackedScene" uid="uid://covwk78sbl0tw" path="res://level_1.tscn" id="3_8rhti"]
+[ext_resource type="PackedScene" uid="uid://c5g1vypg8anpa" path="res://ui.tscn" id="4_ohhpf"]
+
+[node name="base" type="Node2D"]
+script = ExtResource("1_8rhti")
+tower_scene = ExtResource("2_3vi8l")
+metadata/_custom_type_script = "uid://b4vkgk8ym524i"
+
+[node name="level" parent="." instance=ExtResource("3_8rhti")]
+
+[node name="UI" parent="." instance=ExtResource("4_ohhpf")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)

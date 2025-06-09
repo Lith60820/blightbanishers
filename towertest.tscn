@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdr1xxjl721uj"]
+
+[ext_resource type="Script" uid="uid://bnpiu2fr0cpea" path="res://towertest.gd" id="1_ew6bm"]
+[ext_resource type="Texture2D" uid="uid://hd3rf4glqtm0" path="res://enemy.png" id="1_suent"]
+[ext_resource type="PackedScene" uid="uid://dqe1l4uund6b0" path="res://detection.tscn" id="2_rekp8"]
+
+[node name="Dummy" type="Node2D" node_paths=PackedStringArray("detection")]
+script = ExtResource("1_ew6bm")
+max_bullets = 1
+damage = 1
+detection = NodePath("detection")
+metadata/_custom_type_script = "uid://crokpos8m5eeu"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -6)
+texture = ExtResource("1_suent")
+
+[node name="detection" parent="." instance=ExtResource("2_rekp8")]
+scale = Vector2(20, 20)
+
+[connection signal="enemy_entered" from="detection" to="." method="_on_detection_enemy_entered"]
+[connection signal="enemy_exited" from="detection" to="." method="_on_detection_enemy_exited"]

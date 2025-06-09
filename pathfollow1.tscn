@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://upf6ct5qdnrk"]
+
+[node name="pathfollow" type="PathFollow2D"]
+rotation = 3.14159

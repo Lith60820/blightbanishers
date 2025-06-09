@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Sprite" load_steps=2 format=3 uid="uid://b0q2mrg1xwas0"]
+
+[ext_resource type="Script" uid="uid://upq6bejoot8g" path="res://sprite.gd" id="1_7ce4m"]
+
+[resource]
+script = ExtResource("1_7ce4m")
+metadata/_custom_type_script = "uid://upq6bejoot8g"
