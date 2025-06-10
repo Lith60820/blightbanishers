@@ -4,6 +4,9 @@ var targets : Array
 @export var max_bullets : int
 var bullets : int
 
+const BULLET = preload("res://bullet.tscn")
+
+
 func _ready() -> void:
 	bullets = max_bullets
 
@@ -15,7 +18,10 @@ func _process(delta: float) -> void:
 		bullets += 1
 
 func _attack(enemy : Enemy):
-	enemy.health._damage(damage)
+	var _bullet = BULLET.instantiate()
+	get_parent().add_child(_bullet)
+	_bullet.global_position = self.global_position
+	_bullet.target = enemy
 
 func _on_detection_enemy_entered(enemy: Enemy) -> void:
 	var temptargets := detection.get_overlapping_bodies()
