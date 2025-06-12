@@ -1,14 +1,11 @@
 extends Tower
 
-#Test Tower
-
-@export var stats : TowerStats
+#Acid gunner
 
 var targets : Array
 @export var bullets : int
 const BULLET = preload("res://bullet.tscn")
 var canAttack : bool = true
-
 
 func _ready() -> void:
 	bullets

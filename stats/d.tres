@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="TowerStats" load_steps=5 format=3 uid="uid://dqkekoeu5s5fq"]
+
+[ext_resource type="Script" uid="uid://bu16u1pmgro7h" path="res://attack.gd" id="1_d02xe"]
+[ext_resource type="Script" uid="uid://0stclqkftpt1" path="res://towerstats.gd" id="1_u0gxs"]
+
+[sub_resource type="Resource" id="Resource_d02xe"]
+script = ExtResource("1_d02xe")
+damage = 1
+attack_type = 0
+metadata/_custom_type_script = "uid://bu16u1pmgro7h"
+
+[sub_resource type="Resource" id="Resource_px6tn"]
+script = ExtResource("1_d02xe")
+damage = 0
+attack_type = 0
+metadata/_custom_type_script = "uid://bu16u1pmgro7h"
+
+[resource]
+script = ExtResource("1_u0gxs")
+tower_name = ""
+tower_level = 0
+attack = Array[ExtResource("1_d02xe")]([SubResource("Resource_d02xe"), SubResource("Resource_px6tn")])
+attack_int = 0.0
+bullets = 0
+reload_time = 0.0
+metadata/_custom_type_script = "uid://0stclqkftpt1"
