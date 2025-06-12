@@ -1,14 +1,12 @@
 extends CharacterBody2D
 class_name Enemy
 
+enum TYPES{PLASTIC, ORGANIC, METAL, RADIOACTIVE}
+
 @export var health : Health
 @export var speed : int
 @export var damage : int
-
-enum TYPES{PLASTIC, ORGANIC, METAL, RADIOACTIVE}
-
 @export var enemy_type : TYPES
-
 
 @onready var pathfollow : PathFollow2D = self.get_parent()
 

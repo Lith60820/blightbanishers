@@ -6,7 +6,7 @@
 
 [node name="Dummy" type="Node2D" node_paths=PackedStringArray("detection")]
 script = ExtResource("1_ew6bm")
-max_bullets = 1
+bullets = 3
 damage = 1
 detection = NodePath("detection")
 metadata/_custom_type_script = "uid://crokpos8m5eeu"

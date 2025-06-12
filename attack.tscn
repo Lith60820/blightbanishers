@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bmaw21ha47pcj"]
-
-[ext_resource type="Script" uid="uid://bu16u1pmgro7h" path="res://attack.gd" id="1_hvxpb"]
-
-[node name="attack" type="Node"]
-script = ExtResource("1_hvxpb")
-metadata/_custom_type_script = "uid://bu16u1pmgro7h"
