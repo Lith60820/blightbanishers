@@ -1,14 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://wq6vea0d1v23"]
 
-[ext_resource type="Script" uid="uid://bnpiu2fr0cpea" path="res://towertest.gd" id="1_7wgfo"]
+[ext_resource type="Script" uid="uid://m4cxid0wu1xo" path="res://acid_gunner.gd" id="1_7wgfo"]
 [ext_resource type="Texture2D" uid="uid://hd3rf4glqtm0" path="res://enemy.png" id="2_0i6jq"]
 [ext_resource type="PackedScene" uid="uid://dqe1l4uund6b0" path="res://detection.tscn" id="3_3mato"]
 
-[node name="tower" type="Node2D" node_paths=PackedStringArray("detection")]
+[node name="tower" type="Node2D"]
 script = ExtResource("1_7wgfo")
-bullets = 3
-tower_name = "Acid Gunner"
-detection = NodePath("detection")
 metadata/_custom_type_script = "uid://crokpos8m5eeu"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
