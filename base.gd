@@ -9,6 +9,20 @@ class_name Base
 const DUMMY = preload("res://dummy.tscn")
 var occupied := {}
 
+@export var total_lives : int
+var current_lives : int
+
+@export var energy_cap : int
+
+var energy : int
+
+#INITIALISE
+
+func _ready() -> void:
+	current_lives = total_lives
+	energy = 30
+
+
 #TOWER PLACEMENTS
 #-------------------------------------------------------------------------------------------------------------
 
@@ -27,12 +41,13 @@ func is_tile_placeable(cell_pos: Vector2i) -> bool:
 func place_tower(pos):
 	var cell_pos = tilemap.local_to_map(pos)
 	var tower = tower_scene.instantiate()
-	if is_tile_placeable(cell_pos):
+	if is_tile_placeable(cell_pos) and _spend(tower.stats.cost):
 		var world_pos = tilemap.map_to_local(cell_pos)
 		tower.position = world_pos
 		add_child(tower)
 		print("PLACED " + str(occupied.size()))
 		occupied[cell_pos] = true
+		tower.placed = true
 
 #ENEMY SPAWNING
 #-------------------------------------------------------------------------------------------------------------
@@ -43,5 +58,29 @@ func _spawn_enemy(enemy : Enemy):
 #ECONOMY MANAGEMENT
 #-------------------------------------------------------------------------------------------------------------
 
+func _spend(value : int) -> bool:
+	if energy < value:
+		#DOES NOT HAVE ENOUGH
+		return false
+	else:
+		#HAS ENOUGH
+		energy-=value
+		return true
+
 #LIVES
 #-------------------------------------------------------------------------------------------------------------
+
+func _on_killzone_body_entered(body: Node2D) -> void:
+	if body is Enemy:
+		print(_damage(body.damage))
+		body.queue_free()
+
+func _damage(value : int) -> int:
+	current_lives-=value
+	if current_lives <= 0:
+		#GAME OVER
+		current_lives = 0
+		print("DEAD")
+	if current_lives > total_lives:
+		current_lives = total_lives
+	return current_lives

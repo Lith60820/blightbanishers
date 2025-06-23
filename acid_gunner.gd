@@ -37,3 +37,8 @@ func _on_detection_enemy_exited(enemy: Enemy) -> void:
 	if targets.has(enemy):
 		targets.erase(enemy)
 	print("targets: " + str(targets.size()))
+
+
+func _on_static_body_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.button_mask == 1:
+		self.stats.tower_level +=1

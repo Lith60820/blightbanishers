@@ -11,6 +11,7 @@ radius = 35.0143
 script = ExtResource("1_xmspm")
 health = NodePath("Health")
 speed = 100
+damage = 10
 metadata/_custom_type_script = "uid://1h7h644haycl"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

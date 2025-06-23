@@ -7,7 +7,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_3hls8"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1124, 479, 0, 0, 0, 0, 865, 479, 0, 0, 0, 0, 858, 100, 0, 0, 0, 0, 605, 96, 0, 0, 0, 0, 606, 287, 0, 0, 0, 0, 482, 285, 0, 0, 0, 0, 483, 158, 0, 0, 0, 0, 223, 163, 0, 0, 0, 0, 221, 414, 0, 0, 0, 0, -98, 419)
+"points": PackedVector2Array(0, 0, 0, 0, 1124, 480, 0, 0, 0, 0, 864, 480, 0, 0, 0, 0, 864, 96, 0, 0, 0, 0, 608, 96, 0, 0, 0, 0, 608, 288, 0, 0, 0, 0, 482, 288, 0, 0, 0, 0, 482, 160, 0, 0, 0, 0, 224, 160, 0, 0, 0, 0, 224, 416, 0, 0, 0, 0, -96, 416)
 }
 point_count = 10
 
@@ -28,4 +28,4 @@ position = Vector2(2, -1)
 curve = SubResource("Curve2D_3hls8")
 
 [node name="pathfollow" parent="path" instance=ExtResource("3_hn12h")]
-position = Vector2(1124, 479)
+position = Vector2(1124, 480)
