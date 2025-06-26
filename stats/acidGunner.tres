@@ -30,5 +30,5 @@ attack_int = Array[float]([0.1, 0.1, 0.1])
 bullets = Array[int]([3, 3, 3])
 reload_time = Array[float]([1.0, 1.0, 1.0])
 cost = 10
-upgrade_costs = Array[int]([100, 100])
+upgrade_costs = Array[int]([100, 100, 100])
 metadata/_custom_type_script = "uid://0stclqkftpt1"

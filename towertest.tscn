@@ -79,4 +79,5 @@ shape = SubResource("RectangleShape2D_1enjj")
 
 [connection signal="enemy_entered" from="detection" to="." method="_on_detection_enemy_entered"]
 [connection signal="enemy_exited" from="detection" to="." method="_on_detection_enemy_exited"]
+[connection signal="button_down" from="upgrade/upgrade/HBoxContainer/Button" to="." method="_on_button_button_down"]
 [connection signal="input_event" from="StaticBody2D" to="." method="_on_static_body_2d_input_event"]
