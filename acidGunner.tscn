@@ -1,12 +1,12 @@
 [gd_scene load_steps=11 format=3 uid="uid://wq6vea0d1v23"]
 
 [ext_resource type="Script" uid="uid://m4cxid0wu1xo" path="res://acid_gunner.gd" id="1_7wgfo"]
-[ext_resource type="Texture2D" uid="uid://hd3rf4glqtm0" path="res://enemy.png" id="2_0i6jq"]
 [ext_resource type="Resource" uid="uid://n8rrk8bf3vqj" path="res://stats/acidGunner.tres" id="2_3mato"]
+[ext_resource type="Texture2D" uid="uid://dev7amuq34wdx" path="res://EVIL_DRAGON.png" id="3_0i6jq"]
 [ext_resource type="PackedScene" uid="uid://dqe1l4uund6b0" path="res://detection.tscn" id="3_3mato"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7wgfo"]
-size = Vector2(24, 36)
+size = Vector2(64, 64)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0i6jq"]
 bg_color = Color(0.75, 0.75, 0.75, 1)
@@ -29,7 +29,6 @@ bg_color = Color(0.369, 0.384033, 0.41, 1)
 
 [node name="tower" type="Node2D" node_paths=PackedStringArray("detection")]
 script = ExtResource("1_7wgfo")
-bullets = 3
 tower_name = "Acid Gunner"
 detection = NodePath("detection")
 stats = ExtResource("2_3mato")
@@ -43,7 +42,8 @@ shape = SubResource("RectangleShape2D_7wgfo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -6)
-texture = ExtResource("2_0i6jq")
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0i6jq")
 
 [node name="detection" parent="." instance=ExtResource("3_3mato")]
 scale = Vector2(20, 20)

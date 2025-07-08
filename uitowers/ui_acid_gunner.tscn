@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cb3sktd27im3j"]
+
+[ext_resource type="Script" uid="uid://dt5ebbkkr0ndk" path="res://uitowers/ui_tower.gd" id="1_6rd1y"]
+[ext_resource type="Texture2D" uid="uid://dev7amuq34wdx" path="res://EVIL_DRAGON.png" id="2_o006d"]
+
+[node name="UITower" type="Panel"]
+custom_minimum_size = Vector2(16, 16)
+offset_right = 16.0
+offset_bottom = 16.0
+script = ExtResource("1_6rd1y")
+metadata/_custom_type_script = "uid://crh00vhn1yank"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 8)
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("2_o006d")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

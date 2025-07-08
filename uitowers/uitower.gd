@@ -1,6 +1,7 @@
-extends UITower
+extends Panel
+class_name UITower
 
-@onready var tower = preload("res://towertest.tscn")
+var tower : PackedScene
 
 func _on_gui_input(event: InputEvent) -> void:
 	var _tower = tower.instantiate()

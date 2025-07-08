@@ -22,4 +22,4 @@ texture = ExtResource("1_gtj52")
 shape = SubResource("CircleShape2D_xmspm")
 
 [node name="Health" parent="." instance=ExtResource("3_0umox")]
-maxhp = 10
+maxhp = 100

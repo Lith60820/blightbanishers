@@ -24,7 +24,6 @@ metadata/_custom_type_script = "uid://bu16u1pmgro7h"
 [resource]
 script = ExtResource("2_tplha")
 tower_name = "Acid Gunner"
-tower_level = 0
 attack = Array[ExtResource("1_b06lx")]([SubResource("Resource_b06lx"), SubResource("Resource_tplha"), SubResource("Resource_dq1c1")])
 attack_int = Array[float]([0.1, 0.1, 0.1])
 bullets = Array[int]([3, 3, 3])

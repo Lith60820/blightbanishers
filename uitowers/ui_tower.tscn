@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6mhmuukxtij7"]
+
+[ext_resource type="Script" uid="uid://dt5ebbkkr0ndk" path="res://uitowers/ui_tower.gd" id="1_wsxgp"]
+
+[node name="UITower" type="Panel"]
+custom_minimum_size = Vector2(16, 16)
+offset_right = 16.0
+offset_bottom = 16.0
+script = ExtResource("1_wsxgp")
+metadata/_custom_type_script = "uid://crh00vhn1yank"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

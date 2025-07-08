@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5g1vypg8anpa"]
+[gd_scene load_steps=4 format=3 uid="uid://c5g1vypg8anpa"]
 
 [ext_resource type="Script" uid="uid://d0lh2onjg8ppw" path="res://ui.gd" id="1_27fn8"]
-[ext_resource type="PackedScene" uid="uid://c3g84pk8ivae0" path="res://ui_tower.tscn" id="1_fyqef"]
 [ext_resource type="Script" uid="uid://4nchj0s0iu0d" path="res://label_manager.gd" id="1_m6e0p"]
-[ext_resource type="Script" uid="uid://my4l5v4hbkh2" path="res://ui_acid_gunner.gd" id="3_27fn8"]
+[ext_resource type="PackedScene" uid="uid://cb3sktd27im3j" path="res://uitowers/ui_acid_gunner.tscn" id="3_27fn8"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_27fn8")
@@ -39,39 +38,5 @@ scale = Vector2(3, 3)
 theme_override_constants/h_separation = 5
 theme_override_constants/v_separation = 10
 
-[node name="UITower" parent="Panel/FlowContainer" instance=ExtResource("1_fyqef")]
-layout_mode = 2
-
-[node name="UITower2" parent="Panel/FlowContainer" instance=ExtResource("1_fyqef")]
-layout_mode = 2
-script = ExtResource("3_27fn8")
-
-[node name="UITower3" parent="Panel/FlowContainer" instance=ExtResource("1_fyqef")]
-layout_mode = 2
-
-[node name="UITower4" parent="Panel/FlowContainer" instance=ExtResource("1_fyqef")]
-layout_mode = 2
-
-[node name="UITower5" parent="Panel/FlowContainer" instance=ExtResource("1_fyqef")]
-layout_mode = 2
-
-[node name="UITower6" parent="Panel/FlowContainer" instance=ExtResource("1_fyqef")]
-layout_mode = 2
-
-[node name="UITower7" parent="Panel/FlowContainer" instance=ExtResource("1_fyqef")]
-layout_mode = 2
-
-[node name="UITower8" parent="Panel/FlowContainer" instance=ExtResource("1_fyqef")]
-layout_mode = 2
-
-[node name="UITower9" parent="Panel/FlowContainer" instance=ExtResource("1_fyqef")]
-layout_mode = 2
-
-[node name="UITower10" parent="Panel/FlowContainer" instance=ExtResource("1_fyqef")]
-layout_mode = 2
-
-[node name="UITower11" parent="Panel/FlowContainer" instance=ExtResource("1_fyqef")]
-layout_mode = 2
-
-[node name="UITower12" parent="Panel/FlowContainer" instance=ExtResource("1_fyqef")]
+[node name="UITower" parent="Panel/FlowContainer" instance=ExtResource("3_27fn8")]
 layout_mode = 2

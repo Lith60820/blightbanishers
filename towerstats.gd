@@ -3,8 +3,6 @@ class_name TowerStats
 
 @export var tower_name : String
 
-@export var tower_level : int
-
 @export var attack : Array[Attack]
 @export var attack_int : Array[float]
 @export var bullets : Array[int]

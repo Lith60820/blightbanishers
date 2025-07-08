@@ -1,8 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://cdr1xxjl721uj"]
+[gd_scene load_steps=11 format=3 uid="uid://cdr1xxjl721uj"]
 
 [ext_resource type="Script" uid="uid://bnpiu2fr0cpea" path="res://towertest.gd" id="1_ew6bm"]
 [ext_resource type="Texture2D" uid="uid://hd3rf4glqtm0" path="res://enemy.png" id="1_suent"]
-[ext_resource type="Resource" uid="uid://n8rrk8bf3vqj" path="res://stats/acidGunner.tres" id="2_nw473"]
 [ext_resource type="PackedScene" uid="uid://dqe1l4uund6b0" path="res://detection.tscn" id="2_rekp8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1enjj"]
@@ -32,10 +31,8 @@ bg_color = Color(0, 0, 0, 1)
 
 [node name="Dummy" type="Node2D" node_paths=PackedStringArray("detection")]
 script = ExtResource("1_ew6bm")
-bullets = 3
 tower_name = "Acid Gunner"
 detection = NodePath("detection")
-stats = ExtResource("2_nw473")
 metadata/_custom_type_script = "uid://crokpos8m5eeu"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

@@ -5,6 +5,7 @@ class_name Tower
 @export var detection : Detection
 @export var stats : TowerStats
 
+
 var placed : bool = false
 
 func _ready() -> void:
