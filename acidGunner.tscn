@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://wq6vea0d1v23"]
+[gd_scene load_steps=11 format=3 uid="uid://wq6vea0d1v23"]
 
 [ext_resource type="Script" uid="uid://m4cxid0wu1xo" path="res://acid_gunner.gd" id="1_7wgfo"]
 [ext_resource type="Texture2D" uid="uid://hd3rf4glqtm0" path="res://enemy.png" id="2_0i6jq"]
+[ext_resource type="Resource" uid="uid://n8rrk8bf3vqj" path="res://stats/acidGunner.tres" id="2_3mato"]
 [ext_resource type="PackedScene" uid="uid://dqe1l4uund6b0" path="res://detection.tscn" id="3_3mato"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7wgfo"]
@@ -26,11 +27,16 @@ bg_color = Color(0.172833, 0.172833, 0.172833, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d1s5r"]
 bg_color = Color(0.369, 0.384033, 0.41, 1)
 
-[node name="tower" type="Node2D"]
+[node name="tower" type="Node2D" node_paths=PackedStringArray("detection")]
 script = ExtResource("1_7wgfo")
+bullets = 3
+tower_name = "Acid Gunner"
+detection = NodePath("detection")
+stats = ExtResource("2_3mato")
 metadata/_custom_type_script = "uid://crokpos8m5eeu"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+input_pickable = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_7wgfo")
@@ -44,21 +50,34 @@ scale = Vector2(20, 20)
 
 [node name="upgrade" type="Node" parent="."]
 
-[node name="Panel" type="Panel" parent="upgrade"]
+[node name="upgrade" type="Panel" parent="upgrade"]
 offset_left = -96.0
 offset_top = 24.0
 offset_right = 96.0
-offset_bottom = 84.0
+offset_bottom = 132.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_0i6jq")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="upgrade/Panel"]
+[node name="name" type="Label" parent="upgrade/upgrade"]
 layout_mode = 0
-offset_left = 143.0
-offset_top = 9.0
-offset_right = 183.0
-offset_bottom = 49.0
+offset_left = 48.0
+offset_top = 17.0
+offset_right = 144.0
+offset_bottom = 40.0
+text = "Lorem Ipsum"
 
-[node name="Button" type="Button" parent="upgrade/Panel/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="upgrade/upgrade"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 54.0
+offset_right = 185.0
+offset_bottom = 94.0
+alignment = 1
+
+[node name="level" type="Label" parent="upgrade/upgrade/HBoxContainer"]
+layout_mode = 2
+text = "Level"
+
+[node name="Button" type="Button" parent="upgrade/upgrade/HBoxContainer"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxFlat_3mato")
@@ -66,6 +85,11 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_3nhjm")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_34e1r")
 theme_override_styles/normal = SubResource("StyleBoxFlat_d1s5r")
 
+[node name="cost" type="Label" parent="upgrade/upgrade/HBoxContainer"]
+layout_mode = 2
+text = "100"
+
 [connection signal="input_event" from="StaticBody2D" to="." method="_on_static_body_2d_input_event"]
 [connection signal="enemy_entered" from="detection" to="." method="_on_detection_enemy_entered"]
 [connection signal="enemy_exited" from="detection" to="." method="_on_detection_enemy_exited"]
+[connection signal="button_down" from="upgrade/upgrade/HBoxContainer/Button" to="." method="_on_button_button_down"]

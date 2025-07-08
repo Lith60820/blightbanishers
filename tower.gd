@@ -5,8 +5,6 @@ class_name Tower
 @export var detection : Detection
 @export var stats : TowerStats
 
-@export var panel : Node
-
 var placed : bool = false
 
 func _ready() -> void:

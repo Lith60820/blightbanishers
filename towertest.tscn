@@ -5,6 +5,9 @@
 [ext_resource type="Resource" uid="uid://n8rrk8bf3vqj" path="res://stats/acidGunner.tres" id="2_nw473"]
 [ext_resource type="PackedScene" uid="uid://dqe1l4uund6b0" path="res://detection.tscn" id="2_rekp8"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1enjj"]
+size = Vector2(24, 36)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nw473"]
 bg_color = Color(0.75, 0.75, 0.75, 1)
 border_width_left = 5
@@ -27,17 +30,19 @@ bg_color = Color(0.172833, 0.172833, 0.172833, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qt3l8"]
 bg_color = Color(0, 0, 0, 1)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1enjj"]
-size = Vector2(24, 36)
-
-[node name="Dummy" type="Node2D" node_paths=PackedStringArray("detection", "panel")]
+[node name="Dummy" type="Node2D" node_paths=PackedStringArray("detection")]
 script = ExtResource("1_ew6bm")
 bullets = 3
 tower_name = "Acid Gunner"
 detection = NodePath("detection")
 stats = ExtResource("2_nw473")
-panel = NodePath("upgrade")
 metadata/_custom_type_script = "uid://crokpos8m5eeu"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+input_pickable = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_1enjj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -6)
@@ -52,15 +57,20 @@ scale = Vector2(20, 20)
 offset_left = -96.0
 offset_top = 24.0
 offset_right = 96.0
-offset_bottom = 84.0
+offset_bottom = 169.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_nw473")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="upgrade/upgrade"]
 layout_mode = 0
-offset_left = 143.0
+offset_left = 7.0
 offset_top = 9.0
-offset_right = 183.0
+offset_right = 185.0
 offset_bottom = 49.0
+alignment = 1
+
+[node name="level" type="Label" parent="upgrade/upgrade/HBoxContainer"]
+layout_mode = 2
+text = "Level"
 
 [node name="Button" type="Button" parent="upgrade/upgrade/HBoxContainer"]
 custom_minimum_size = Vector2(40, 40)
@@ -71,13 +81,11 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_ncu3e")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_2kewf")
 theme_override_styles/normal = SubResource("StyleBoxFlat_qt3l8")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-input_pickable = true
+[node name="cost" type="Label" parent="upgrade/upgrade/HBoxContainer"]
+layout_mode = 2
+text = "100"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("RectangleShape2D_1enjj")
-
+[connection signal="input_event" from="StaticBody2D" to="." method="_on_static_body_2d_input_event"]
 [connection signal="enemy_entered" from="detection" to="." method="_on_detection_enemy_entered"]
 [connection signal="enemy_exited" from="detection" to="." method="_on_detection_enemy_exited"]
 [connection signal="button_down" from="upgrade/upgrade/HBoxContainer/Button" to="." method="_on_button_button_down"]
-[connection signal="input_event" from="StaticBody2D" to="." method="_on_static_body_2d_input_event"]

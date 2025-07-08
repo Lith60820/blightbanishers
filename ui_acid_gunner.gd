@@ -1,6 +1,6 @@
 extends UITower
 
-@onready var tower = preload("res://towertest.tscn")
+@onready var tower = preload("res://acidGunner.tscn")
 
 func _on_gui_input(event: InputEvent) -> void:
 	var _tower = tower.instantiate()

@@ -4,6 +4,8 @@ class_name Base
 @onready var level = $level
 @onready var tilemap = $level/tilemap
 @onready var path = $level/path
+@onready var ui = $UI
+
 @export var tower_scene: PackedScene
 
 const DUMMY = preload("res://dummy.tscn")
@@ -21,6 +23,7 @@ var energy : int
 func _ready() -> void:
 	current_lives = total_lives
 	energy = 30
+	_passive_income()
 
 
 #TOWER PLACEMENTS
@@ -28,7 +31,6 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("rc"):
-		print("AAA")
 		_spawn_enemy(DUMMY.instantiate())
 
 
@@ -38,14 +40,12 @@ func is_tile_placeable(cell_pos: Vector2i) -> bool:
 		return tileData.get_custom_data("placeable") and not occupied.has(cell_pos)
 	return false
 
-func place_tower(pos):
+func place_tower(tower,pos):
 	var cell_pos = tilemap.local_to_map(pos)
-	var tower = tower_scene.instantiate()
 	if is_tile_placeable(cell_pos) and _spend(tower.stats.cost):
 		var world_pos = tilemap.map_to_local(cell_pos)
 		tower.position = world_pos
 		add_child(tower)
-		print("PLACED " + str(occupied.size()))
 		occupied[cell_pos] = true
 		tower.placed = true
 
@@ -55,8 +55,17 @@ func place_tower(pos):
 func _spawn_enemy(enemy : Enemy):
 	level._spawn(enemy)
 
-#ECONOMY MANAGEMENT
+#ENERGY MANAGEMENT
 #-------------------------------------------------------------------------------------------------------------
+
+func _energy(value : int):
+	energy = value
+	ui._update(1,value)
+
+func _passive_income():
+	_energy(energy + 1)
+	await get_tree().create_timer(0.1).timeout
+	_passive_income()
 
 func _spend(value : int) -> bool:
 	if energy < value:
@@ -64,8 +73,10 @@ func _spend(value : int) -> bool:
 		return false
 	else:
 		#HAS ENOUGH
-		energy-=value
+		_energy(energy-value)
 		return true
+
+
 
 #LIVES
 #-------------------------------------------------------------------------------------------------------------
