@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dev7amuq34wdx"
-path="res://.godot/imported/EVIL_DRAGON.png-76fa9212bc603b9cd7fb8013badfad45.ctex"
+uid="uid://c2hwkn1o0vwb3"
+path="res://.godot/imported/acid5.png-4c8e2711c0ba94eb52ec1a27214dac95.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://EVIL_DRAGON.png"
-dest_files=["res://.godot/imported/EVIL_DRAGON.png-76fa9212bc603b9cd7fb8013badfad45.ctex"]
+source_file="res://assets/towers/acid/acid5.png"
+dest_files=["res://.godot/imported/acid5.png-4c8e2711c0ba94eb52ec1a27214dac95.ctex"]
 
 [params]
 

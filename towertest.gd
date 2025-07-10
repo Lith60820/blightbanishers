@@ -8,12 +8,6 @@ var canAttack : bool = true
 @onready var levelLabel : Label = $upgrade/upgrade/HBoxContainer/level
 @onready var button = $upgrade/upgrade/HBoxContainer/Button
 
-var level : int
-var attack : Attack
-var attack_int : float
-var bullets : int
-var reload_time : float
-
 func _set_stats():
 	attack = stats.attack[level]
 	attack_int = stats.attack_int[level]

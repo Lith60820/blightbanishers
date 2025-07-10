@@ -5,19 +5,19 @@
 
 [sub_resource type="Resource" id="Resource_b06lx"]
 script = ExtResource("1_b06lx")
-damage = 1
+damage = 5
 attack_type = 0
 metadata/_custom_type_script = "uid://bu16u1pmgro7h"
 
 [sub_resource type="Resource" id="Resource_tplha"]
 script = ExtResource("1_b06lx")
-damage = 3
+damage = 8
 attack_type = 0
 metadata/_custom_type_script = "uid://bu16u1pmgro7h"
 
 [sub_resource type="Resource" id="Resource_dq1c1"]
 script = ExtResource("1_b06lx")
-damage = 6
+damage = 12
 attack_type = 0
 metadata/_custom_type_script = "uid://bu16u1pmgro7h"
 
@@ -26,7 +26,7 @@ script = ExtResource("2_tplha")
 tower_name = "Acid Gunner"
 attack = Array[ExtResource("1_b06lx")]([SubResource("Resource_b06lx"), SubResource("Resource_tplha"), SubResource("Resource_dq1c1")])
 attack_int = Array[float]([0.1, 0.1, 0.1])
-bullets = Array[int]([3, 3, 3])
+bullets = Array[int]([1, 2, 3])
 reload_time = Array[float]([1.0, 1.0, 1.0])
 cost = 10
 upgrade_costs = Array[int]([100, 100, 100])

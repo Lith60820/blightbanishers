@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://wq6vea0d1v23"]
+[gd_scene load_steps=12 format=3 uid="uid://wq6vea0d1v23"]
 
 [ext_resource type="Script" uid="uid://m4cxid0wu1xo" path="res://acid_gunner.gd" id="1_7wgfo"]
 [ext_resource type="Resource" uid="uid://n8rrk8bf3vqj" path="res://stats/acidGunner.tres" id="2_3mato"]
-[ext_resource type="Texture2D" uid="uid://dev7amuq34wdx" path="res://EVIL_DRAGON.png" id="3_0i6jq"]
+[ext_resource type="Resource" uid="uid://c1qo0d00gqo6q" path="res://assets/towers/acid/acid.tres" id="2_3nhjm"]
+[ext_resource type="Texture2D" uid="uid://bvmlnl4mclxxh" path="res://assets/towers/acid/acid1.png" id="3_0i6jq"]
 [ext_resource type="PackedScene" uid="uid://dqe1l4uund6b0" path="res://detection.tscn" id="3_3mato"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7wgfo"]
@@ -29,6 +30,7 @@ bg_color = Color(0.369, 0.384033, 0.41, 1)
 
 [node name="tower" type="Node2D" node_paths=PackedStringArray("detection")]
 script = ExtResource("1_7wgfo")
+sprites = ExtResource("2_3nhjm")
 tower_name = "Acid Gunner"
 detection = NodePath("detection")
 stats = ExtResource("2_3mato")
@@ -41,8 +43,8 @@ input_pickable = true
 shape = SubResource("RectangleShape2D_7wgfo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -6)
-scale = Vector2(0.08, 0.08)
+rotation = 1.5708
+scale = Vector2(0.125, 0.125)
 texture = ExtResource("3_0i6jq")
 
 [node name="detection" parent="." instance=ExtResource("3_3mato")]

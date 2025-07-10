@@ -2,6 +2,9 @@ extends Tower
 
 #Acid gunner
 
+#Stat variables
+
+
 var targets : Array
 const BULLET = preload("res://bullet.tscn")
 var canAttack : bool = true
@@ -11,12 +14,9 @@ var canAttack : bool = true
 @onready var levelLabel : Label = $upgrade/upgrade/HBoxContainer/level
 @onready var button = $upgrade/upgrade/HBoxContainer/Button
 
-var level : int
-var attack : Attack
-var attack_int : float
-var max_bullets : int
-var bullets : int
-var reload_time : float
+@onready var sprite = $Sprite2D
+
+
 
 func _set_stats():
 	attack = stats.attack[level]
@@ -27,9 +27,10 @@ func _set_stats():
 	reload_time = stats.reload_time[level]
 	
 	print("New attack:", attack.damage)
+	
+	sprite.texture = sprites.textures[level]
 
 func _ready() -> void:
-	
 	#Set stats
 	level = 0
 	_set_stats()
@@ -37,6 +38,8 @@ func _ready() -> void:
 	get_node("upgrade/upgrade").visible = false
 	levelLabel.text = "Level " + str(level + 1)
 	nameLabel.text = stats.tower_name
+	
+	
 
 func _process(delta: float) -> void:
 	if targets.size():

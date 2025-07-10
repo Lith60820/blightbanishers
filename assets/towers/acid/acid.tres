@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Sprites" load_steps=8 format=3 uid="uid://c1qo0d00gqo6q"]
+
+[ext_resource type="Script" uid="uid://crs8tg1gev5py" path="res://sprites.gd" id="1_oolrw"]
+[ext_resource type="Texture2D" uid="uid://bvmlnl4mclxxh" path="res://assets/towers/acid/acid1.png" id="2_1b8n1"]
+[ext_resource type="Texture2D" uid="uid://btigkrdkfgpd7" path="res://assets/towers/acid/acid2.png" id="3_6pa1q"]
+[ext_resource type="Texture2D" uid="uid://cyj8jf2q1qkta" path="res://assets/towers/acid/acid3.png" id="4_gxskg"]
+[ext_resource type="Texture2D" uid="uid://cf12gdc0xr2m0" path="res://assets/towers/acid/acid4.png" id="5_risi6"]
+[ext_resource type="Texture2D" uid="uid://c2hwkn1o0vwb3" path="res://assets/towers/acid/acid5.png" id="6_7yxse"]
+[ext_resource type="Texture2D" uid="uid://b82igrx00v6kg" path="res://assets/towers/acid/acid6.png" id="7_qcu2o"]
+
+[resource]
+script = ExtResource("1_oolrw")
+textures = [ExtResource("2_1b8n1"), ExtResource("3_6pa1q"), ExtResource("4_gxskg"), ExtResource("5_risi6"), ExtResource("6_7yxse"), ExtResource("7_qcu2o")]
+metadata/_custom_type_script = "uid://crs8tg1gev5py"
