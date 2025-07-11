@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://3giwnuriailu"]
+[gd_scene load_steps=6 format=3 uid="uid://3giwnuriailu"]
 
 [ext_resource type="Script" uid="uid://b4vkgk8ym524i" path="res://base.gd" id="1_8rhti"]
 [ext_resource type="PackedScene" uid="uid://cdr1xxjl721uj" path="res://towertest.tscn" id="2_3vi8l"]
-[ext_resource type="PackedScene" uid="uid://covwk78sbl0tw" path="res://level_1.tscn" id="3_8rhti"]
 [ext_resource type="PackedScene" uid="uid://c5g1vypg8anpa" path="res://ui.tscn" id="4_ohhpf"]
 [ext_resource type="Script" uid="uid://ctdq6qm65fkrg" path="res://detection.gd" id="5_21bcp"]
 
@@ -21,10 +20,8 @@ script = ExtResource("5_21bcp")
 metadata/_custom_type_script = "uid://ctdq6qm65fkrg"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
-position = Vector2(-64, 416)
+position = Vector2(-88, 416)
 shape = SubResource("RectangleShape2D_ohhpf")
-
-[node name="level" parent="." instance=ExtResource("3_8rhti")]
 
 [node name="UI" parent="." instance=ExtResource("4_ohhpf")]
 

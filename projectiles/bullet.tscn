@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b27rxv7os0n5o"]
 
-[ext_resource type="Script" uid="uid://dcjbu2fsssi7n" path="res://bullet.gd" id="1_v7oki"]
+[ext_resource type="Script" uid="uid://dcjbu2fsssi7n" path="res://scripts/projectiles/bullet.gd" id="1_v7oki"]
 [ext_resource type="Script" uid="uid://bu16u1pmgro7h" path="res://attack.gd" id="2_2b2rl"]
 [ext_resource type="Texture2D" uid="uid://5i1j64mihhe4" path="res://enemyproj.png" id="3_t4vbm"]
 [ext_resource type="PackedScene" uid="uid://dqe1l4uund6b0" path="res://detection.tscn" id="4_2b2rl"]

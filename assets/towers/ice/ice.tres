@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Sprites" load_steps=8 format=3 uid="uid://bpoo1p7fywu50"]
+
+[ext_resource type="Script" uid="uid://crs8tg1gev5py" path="res://sprites.gd" id="1_owapi"]
+[ext_resource type="Texture2D" uid="uid://cdhuycv0c16lt" path="res://assets/towers/ice/ice1.png" id="2_rxikb"]
+[ext_resource type="Texture2D" uid="uid://b17ropif23bft" path="res://assets/towers/ice/ice2.png" id="3_g32nj"]
+[ext_resource type="Texture2D" uid="uid://bwrxiyf128hvq" path="res://assets/towers/ice/ice3.png" id="4_ash5j"]
+[ext_resource type="Texture2D" uid="uid://brpdchm1qy0n8" path="res://assets/towers/ice/ice4.png" id="5_v8uax"]
+[ext_resource type="Texture2D" uid="uid://e2gqr52m82ql" path="res://assets/towers/ice/ice5.png" id="6_1nelb"]
+[ext_resource type="Texture2D" uid="uid://e6fehr2xp4qh" path="res://assets/towers/ice/ice6.png" id="7_hg4qv"]
+
+[resource]
+script = ExtResource("1_owapi")
+textures = Array[Texture2D]([ExtResource("2_rxikb"), ExtResource("3_g32nj"), ExtResource("4_ash5j"), ExtResource("5_v8uax"), ExtResource("6_1nelb"), ExtResource("7_hg4qv")])
+metadata/_custom_type_script = "uid://crs8tg1gev5py"

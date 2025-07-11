@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="TowerStats" load_steps=6 format=3 uid="uid://dap8p4xqd5n06"]
+
+[ext_resource type="Script" uid="uid://bu16u1pmgro7h" path="res://attack.gd" id="1_2dpi8"]
+[ext_resource type="Script" uid="uid://0stclqkftpt1" path="res://towerstats.gd" id="2_uhcuc"]
+
+[sub_resource type="Resource" id="Resource_b06lx"]
+script = ExtResource("1_2dpi8")
+damage = 5
+attack_type = 0
+metadata/_custom_type_script = "uid://bu16u1pmgro7h"
+
+[sub_resource type="Resource" id="Resource_tplha"]
+script = ExtResource("1_2dpi8")
+damage = 8
+attack_type = 0
+metadata/_custom_type_script = "uid://bu16u1pmgro7h"
+
+[sub_resource type="Resource" id="Resource_dq1c1"]
+script = ExtResource("1_2dpi8")
+damage = 12
+attack_type = 0
+metadata/_custom_type_script = "uid://bu16u1pmgro7h"
+
+[resource]
+script = ExtResource("2_uhcuc")
+tower_names = Array[String](["Snowball Launcher", "Frost Blaster", "Freeze Cannon", "Fluoroantimonic Beam", "Molecular Breakdown", "H+ Apocalypse Engine"])
+attack = Array[ExtResource("1_2dpi8")]([SubResource("Resource_b06lx"), SubResource("Resource_tplha"), SubResource("Resource_dq1c1")])
+attack_int = Array[float]([0.1, 0.1, 0.1])
+bullets = Array[int]([1, 1, 1])
+reload_time = Array[float]([0.1, 2.0, 2.0])
+cost = 10
+upgrade_costs = Array[int]([100, 100, 100])
+metadata/_custom_type_script = "uid://0stclqkftpt1"

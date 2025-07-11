@@ -1,18 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://cb3sktd27im3j"]
+[gd_scene load_steps=3 format=3 uid="uid://c1lh5hjkak5u0"]
 
-[ext_resource type="Script" uid="uid://my4l5v4hbkh2" path="res://scripts/uitowers/ui_acid_gunner.gd" id="1_o006d"]
-[ext_resource type="Texture2D" uid="uid://bvmlnl4mclxxh" path="res://assets/towers/acid/acid1.png" id="2_o006d"]
+[ext_resource type="Script" uid="uid://d1jy8eq5exy53" path="res://scripts/uitowers/ui_ice_tower.gd" id="1_plixg"]
+[ext_resource type="Texture2D" uid="uid://cdhuycv0c16lt" path="res://assets/towers/ice/ice1.png" id="2_plixg"]
 
 [node name="UITower" type="Panel"]
 custom_minimum_size = Vector2(16, 16)
 offset_right = 16.0
 offset_bottom = 16.0
-script = ExtResource("1_o006d")
+script = ExtResource("1_plixg")
 metadata/_custom_type_script = "uid://crh00vhn1yank"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(8, 8)
 scale = Vector2(0.0273438, 0.0273438)
-texture = ExtResource("2_o006d")
+texture = ExtResource("2_plixg")
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]

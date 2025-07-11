@@ -1,0 +1,105 @@
+[gd_scene load_steps=12 format=3 uid="uid://wq6vea0d1v23"]
+
+[ext_resource type="Script" uid="uid://m4cxid0wu1xo" path="res://scripts/towers/acid_gunner.gd" id="1_yfjc3"]
+[ext_resource type="Resource" uid="uid://c1qo0d00gqo6q" path="res://assets/towers/acid/acid.tres" id="2_yk3fi"]
+[ext_resource type="Resource" uid="uid://n8rrk8bf3vqj" path="res://stats/acidGunner.tres" id="3_08ekg"]
+[ext_resource type="Texture2D" uid="uid://bvmlnl4mclxxh" path="res://assets/towers/acid/acid1.png" id="4_juseu"]
+[ext_resource type="PackedScene" uid="uid://dqe1l4uund6b0" path="res://detection.tscn" id="5_yc038"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7wgfo"]
+size = Vector2(64, 64)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yfjc3"]
+bg_color = Color(0.75, 0.75, 0.75, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.44, 0.44, 0.44, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yk3fi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_08ekg"]
+bg_color = Color(0.699653, 0.699654, 0.699653, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_juseu"]
+bg_color = Color(0.172833, 0.172833, 0.172833, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yc038"]
+bg_color = Color(0.369, 0.384033, 0.41, 1)
+
+[node name="tower" type="Node2D" node_paths=PackedStringArray("detection", "nameLabel", "sprite", "levelLabel")]
+script = ExtResource("1_yfjc3")
+sprites = ExtResource("2_yk3fi")
+tower_name = "Acid Gunner"
+detection = NodePath("detection")
+stats = ExtResource("3_08ekg")
+nameLabel = NodePath("upgrade/upgrade/name")
+sprite = NodePath("Sprite2D")
+levelLabel = NodePath("upgrade/upgrade/level")
+metadata/_custom_type_script = "uid://crokpos8m5eeu"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+input_pickable = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_7wgfo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("4_juseu")
+
+[node name="detection" parent="." instance=ExtResource("5_yc038")]
+scale = Vector2(20, 20)
+
+[node name="upgrade" type="Node" parent="."]
+
+[node name="upgrade" type="Panel" parent="upgrade"]
+offset_left = -96.0
+offset_top = 24.0
+offset_right = 96.0
+offset_bottom = 132.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yfjc3")
+
+[node name="name" type="Label" parent="upgrade/upgrade"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 10.0
+offset_right = 114.0
+offset_bottom = 33.0
+text = "Lorem Ipsum"
+
+[node name="level" type="Label" parent="upgrade/upgrade"]
+layout_mode = 2
+offset_left = 12.0
+offset_top = 32.0
+offset_right = 53.0
+offset_bottom = 55.0
+text = "Level"
+
+[node name="Button" type="Button" parent="upgrade/upgrade"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+offset_left = 141.0
+offset_top = 57.0
+offset_right = 181.0
+offset_bottom = 97.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_yk3fi")
+theme_override_styles/hover = SubResource("StyleBoxFlat_08ekg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_juseu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_yc038")
+
+[node name="cost" type="Label" parent="upgrade/upgrade"]
+layout_mode = 2
+offset_left = 109.0
+offset_top = 74.0
+offset_right = 137.0
+offset_bottom = 97.0
+text = "100"
+horizontal_alignment = 2
+
+[connection signal="input_event" from="StaticBody2D" to="." method="_on_static_body_2d_input_event"]
+[connection signal="enemy_entered" from="detection" to="." method="_on_detection_enemy_entered"]
+[connection signal="enemy_exited" from="detection" to="." method="_on_detection_enemy_exited"]
+[connection signal="button_down" from="upgrade/upgrade/Button" to="." method="_on_button_button_down"]

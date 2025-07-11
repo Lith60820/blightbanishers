@@ -5,8 +5,10 @@ class_name Level
 @onready var path := self.get_child(2)
 const pathfollow = preload("res://pathfollow1.tscn")
 
+
+
 func _ready() -> void:
-	print("testmsg")
+	pass
 
 func _spawn(enemy):
 	var _pathfollow = pathfollow.instantiate()

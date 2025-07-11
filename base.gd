@@ -1,9 +1,14 @@
 extends Node2D
 class_name Base
 
-@onready var level = $level
-@onready var tilemap = $level/tilemap
-@onready var path = $level/path
+@onready var levels : Array[Level] = [preload("res://levels/level_1.tscn").instantiate()]
+
+@onready var level_id = 0
+
+var level : Level
+var tilemap : TileMapLayer
+var path : Path2D
+
 @onready var ui = $UI
 
 @export var tower_scene: PackedScene
@@ -18,20 +23,37 @@ var current_lives : int
 
 var energy : int
 
+var running:=false
+
+var counter := 0
+
 #INITIALISE
 
+func _add_level():
+	level = levels[level_id]
+	self.add_child(level)
+	tilemap = level.tilemap
+	path = level.path
+
 func _ready() -> void:
+	_add_level()
 	current_lives = total_lives
-	energy = 30
-	_passive_income()
+	ui._update(0,current_lives)
+	energy = 200
+	ui._update(1,energy)
+	counter = 0
 
 
 #TOWER PLACEMENTS
 #-------------------------------------------------------------------------------------------------------------
 
 func _process(delta: float) -> void:
+	counter+=1
 	if Input.is_action_just_pressed("rc"):
 		_spawn_enemy(DUMMY.instantiate())
+		running = !running
+	if running and counter%6==0:
+		_passive_income()
 
 
 func is_tile_placeable(cell_pos: Vector2i) -> bool:
@@ -52,6 +74,8 @@ func place_tower(tower,pos):
 #ENEMY SPAWNING
 #-------------------------------------------------------------------------------------------------------------
 
+# GET WAVES
+
 func _spawn_enemy(enemy : Enemy):
 	level._spawn(enemy)
 
@@ -64,8 +88,6 @@ func _energy(value : int):
 
 func _passive_income():
 	_energy(energy + 1)
-	await get_tree().create_timer(0.1).timeout
-	_passive_income()
 
 func _spend(value : int) -> bool:
 	if energy < value:
@@ -83,15 +105,15 @@ func _spend(value : int) -> bool:
 
 func _on_killzone_body_entered(body: Node2D) -> void:
 	if body is Enemy:
-		print(_damage(body.damage))
 		body.queue_free()
+		_damage(body.damage)
 
 func _damage(value : int) -> int:
 	current_lives-=value
 	if current_lives <= 0:
 		#GAME OVER
 		current_lives = 0
-		print("DEAD")
 	if current_lives > total_lives:
 		current_lives = total_lives
+	ui._update(0,current_lives)
 	return current_lives

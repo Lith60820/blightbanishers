@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="TowerStats" load_steps=6 format=3 uid="uid://n8rrk8bf3vqj"]
+[gd_resource type="Resource" script_class="TowerStats" load_steps=8 format=3 uid="uid://n8rrk8bf3vqj"]
 
 [ext_resource type="Script" uid="uid://bu16u1pmgro7h" path="res://attack.gd" id="1_b06lx"]
 [ext_resource type="Script" uid="uid://0stclqkftpt1" path="res://towerstats.gd" id="2_tplha"]
@@ -21,13 +21,25 @@ damage = 12
 attack_type = 0
 metadata/_custom_type_script = "uid://bu16u1pmgro7h"
 
+[sub_resource type="Resource" id="Resource_0xk42"]
+script = ExtResource("1_b06lx")
+damage = 40
+attack_type = 0
+metadata/_custom_type_script = "uid://bu16u1pmgro7h"
+
+[sub_resource type="Resource" id="Resource_rqboa"]
+script = ExtResource("1_b06lx")
+damage = 20
+attack_type = 0
+metadata/_custom_type_script = "uid://bu16u1pmgro7h"
+
 [resource]
 script = ExtResource("2_tplha")
-tower_name = "Acid Gunner"
-attack = Array[ExtResource("1_b06lx")]([SubResource("Resource_b06lx"), SubResource("Resource_tplha"), SubResource("Resource_dq1c1")])
-attack_int = Array[float]([0.1, 0.1, 0.1])
-bullets = Array[int]([1, 2, 3])
-reload_time = Array[float]([1.0, 1.0, 1.0])
+tower_names = Array[String](["Acid Gunner", "Acid Turret", "Acid Cannon", "Fluoroantimonic Beam", "Molecular Breakdown", "H⁺ Apocalypse Engine"])
+attack = Array[ExtResource("1_b06lx")]([SubResource("Resource_b06lx"), SubResource("Resource_tplha"), SubResource("Resource_dq1c1"), SubResource("Resource_0xk42"), SubResource("Resource_rqboa")])
+attack_int = Array[float]([0.1, 0.1, 0.1, 0.1, 0.1, 0.1])
+bullets = Array[int]([1, 2, 3, 4, 10])
+reload_time = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 cost = 10
-upgrade_costs = Array[int]([100, 100, 100])
+upgrade_costs = Array[int]([100, 100, 100, 10, 10, 10])
 metadata/_custom_type_script = "uid://0stclqkftpt1"
