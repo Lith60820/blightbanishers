@@ -1,16 +1,15 @@
-[gd_scene load_steps=18 format=3 uid="uid://boluw87csfrr8"]
+[gd_scene load_steps=17 format=3 uid="uid://b55bvlml7xafj"]
 
-[ext_resource type="Script" uid="uid://bjwlr868uyclt" path="res://scripts/towers/ice_tower.gd" id="1_yxuag"]
-[ext_resource type="Resource" uid="uid://bpoo1p7fywu50" path="res://assets/towers/ice/ice.tres" id="2_8elut"]
-[ext_resource type="Resource" uid="uid://cc1uy6qecku22" path="res://stats/slows/iceTower.tres" id="2_am32k"]
-[ext_resource type="Resource" uid="uid://dap8p4xqd5n06" path="res://stats/iceTower.tres" id="3_8elut"]
-[ext_resource type="Texture2D" uid="uid://cdhuycv0c16lt" path="res://assets/towers/ice/ice1.png" id="4_8elut"]
-[ext_resource type="PackedScene" uid="uid://dqe1l4uund6b0" path="res://detection.tscn" id="5_41da1"]
+[ext_resource type="Script" uid="uid://181oqxy45w3h" path="res://compactor.gd" id="1_wb07f"]
+[ext_resource type="Resource" uid="uid://b5cuoltc4653s" path="res://assets/towers/compactor/compactor.tres" id="2_uwvbr"]
+[ext_resource type="Resource" uid="uid://iyes0cdmga0y" path="res://stats/compactor.tres" id="3_85y77"]
+[ext_resource type="Texture2D" uid="uid://dvorxxvwbenym" path="res://assets/towers/compactor/compactor1.png" id="4_uwvbr"]
+[ext_resource type="PackedScene" uid="uid://dqe1l4uund6b0" path="res://detection.tscn" id="6_2ji83"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7wgfo"]
 size = Vector2(64, 64)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0i6jq"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yfjc3"]
 bg_color = Color(0.75, 0.75, 0.75, 1)
 border_width_left = 5
 border_width_top = 5
@@ -18,18 +17,18 @@ border_width_right = 5
 border_width_bottom = 5
 border_color = Color(0.44, 0.44, 0.44, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3mato"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yk3fi"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3nhjm"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_08ekg"]
 bg_color = Color(0.699653, 0.699654, 0.699653, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_34e1r"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_juseu"]
 bg_color = Color(0.172833, 0.172833, 0.172833, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d1s5r"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yc038"]
 bg_color = Color(0.369, 0.384033, 0.41, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_am32k"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bbcl2"]
 bg_color = Color(0.75, 0.75, 0.75, 1)
 border_width_left = 5
 border_width_top = 5
@@ -37,26 +36,24 @@ border_width_right = 5
 border_width_bottom = 5
 border_color = Color(0.44, 0.44, 0.44, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k8a7a"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_admxe"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ol7sa"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hlrhx"]
 bg_color = Color(0.699653, 0.699654, 0.699653, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_41da1"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a7wd0"]
 bg_color = Color(0.172833, 0.172833, 0.172833, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5j4ov"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jexcl"]
 bg_color = Color(0.369, 0.384033, 0.41, 1)
 
 [node name="tower" type="Node2D" node_paths=PackedStringArray("detection", "sprite")]
-script = ExtResource("1_yxuag")
-sprites = ExtResource("2_8elut")
-tower_name = "Snowball Launcher"
+script = ExtResource("1_wb07f")
+sprites = ExtResource("2_uwvbr")
+tower_name = "Compactor"
 detection = NodePath("detection")
-stats = ExtResource("3_8elut")
+stats = ExtResource("3_85y77")
 sprite = NodePath("Sprite2D")
-slow_stats = ExtResource("2_am32k")
-doISlow = true
 metadata/_custom_type_script = "uid://crokpos8m5eeu"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -68,9 +65,9 @@ shape = SubResource("RectangleShape2D_7wgfo")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
 scale = Vector2(0.125, 0.125)
-texture = ExtResource("4_8elut")
+texture = ExtResource("4_uwvbr")
 
-[node name="detection" parent="." instance=ExtResource("5_41da1")]
+[node name="detection" parent="." instance=ExtResource("6_2ji83")]
 scale = Vector2(20, 20)
 
 [node name="upgrade" type="Node" parent="."]
@@ -80,7 +77,7 @@ offset_left = -96.0
 offset_top = 24.0
 offset_right = 96.0
 offset_bottom = 132.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_0i6jq")
+theme_override_styles/panel = SubResource("StyleBoxFlat_yfjc3")
 
 [node name="name" type="Label" parent="upgrade/upgrade"]
 layout_mode = 0
@@ -89,7 +86,6 @@ offset_top = 10.0
 offset_right = 114.0
 offset_bottom = 33.0
 text = "Lorem Ipsum"
-horizontal_alignment = 1
 
 [node name="level" type="Label" parent="upgrade/upgrade"]
 layout_mode = 2
@@ -99,17 +95,17 @@ offset_right = 53.0
 offset_bottom = 55.0
 text = "Level"
 
-[node name="Button" type="Button" parent="upgrade/upgrade"]
+[node name="upgrade" type="Button" parent="upgrade/upgrade"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 offset_left = 141.0
 offset_top = 57.0
 offset_right = 181.0
 offset_bottom = 97.0
-theme_override_styles/focus = SubResource("StyleBoxFlat_3mato")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3nhjm")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_34e1r")
-theme_override_styles/normal = SubResource("StyleBoxFlat_d1s5r")
+theme_override_styles/focus = SubResource("StyleBoxFlat_yk3fi")
+theme_override_styles/hover = SubResource("StyleBoxFlat_08ekg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_juseu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_yc038")
 
 [node name="cost" type="Label" parent="upgrade/upgrade"]
 layout_mode = 2
@@ -125,7 +121,7 @@ offset_left = -96.0
 offset_top = 24.0
 offset_right = 96.0
 offset_bottom = 132.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_am32k")
+theme_override_styles/panel = SubResource("StyleBoxFlat_bbcl2")
 
 [node name="name" type="Label" parent="upgrade/path"]
 layout_mode = 0
@@ -151,10 +147,10 @@ offset_left = 53.0
 offset_top = 60.0
 offset_right = 93.0
 offset_bottom = 100.0
-theme_override_styles/focus = SubResource("StyleBoxFlat_k8a7a")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ol7sa")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_41da1")
-theme_override_styles/normal = SubResource("StyleBoxFlat_5j4ov")
+theme_override_styles/focus = SubResource("StyleBoxFlat_admxe")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hlrhx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_a7wd0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_jexcl")
 
 [node name="path2" type="Button" parent="upgrade/path"]
 custom_minimum_size = Vector2(40, 40)
@@ -163,10 +159,10 @@ offset_left = 144.0
 offset_top = 60.0
 offset_right = 184.0
 offset_bottom = 100.0
-theme_override_styles/focus = SubResource("StyleBoxFlat_k8a7a")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ol7sa")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_41da1")
-theme_override_styles/normal = SubResource("StyleBoxFlat_5j4ov")
+theme_override_styles/focus = SubResource("StyleBoxFlat_admxe")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hlrhx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_a7wd0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_jexcl")
 
 [node name="cost1" type="Label" parent="upgrade/path"]
 layout_mode = 0
@@ -189,6 +185,7 @@ horizontal_alignment = 2
 [connection signal="input_event" from="StaticBody2D" to="." method="_on_static_body_2d_input_event"]
 [connection signal="enemy_entered" from="detection" to="." method="_on_detection_enemy_entered"]
 [connection signal="enemy_exited" from="detection" to="." method="_on_detection_enemy_exited"]
-[connection signal="button_down" from="upgrade/upgrade/Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="upgrade/upgrade/upgrade" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="upgrade/upgrade/upgrade" to="." method="_on_upgrade_button_down"]
 [connection signal="button_down" from="upgrade/path/path1" to="." method="_on_path_1_button_down"]
 [connection signal="button_down" from="upgrade/path/path2" to="." method="_on_path_2_button_down"]

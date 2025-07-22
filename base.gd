@@ -3,11 +3,15 @@ class_name Base
 
 @onready var levels : Array[Level] = [preload("res://levels/level_1.tscn").instantiate()]
 
+var laserLocked := false
+
 @onready var level_id = 0
 
 var level : Level
 var tilemap : TileMapLayer
 var path : Path2D
+
+@export var wave : Waves
 
 @onready var ui = $UI
 
@@ -23,9 +27,23 @@ var current_lives : int
 
 var energy : int
 
-var running:=false
+var running := true
 
 var counter := 0
+
+var level4s : Array[bool] = [
+	# Not level 4
+	false,
+	# Acid gunner
+	false, false,
+	# Freeze cannon
+	false, false,
+	# Compactor
+	false, false,
+	# Incin
+	false, false
+]
+
 
 #INITIALISE
 
@@ -42,6 +60,7 @@ func _ready() -> void:
 	energy = 200
 	ui._update(1,energy)
 	counter = 0
+	_wave(wave)
 
 
 #TOWER PLACEMENTS
@@ -52,7 +71,11 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("rc"):
 		_spawn_enemy(DUMMY.instantiate())
 		running = !running
+	if Input.is_action_just_pressed("toggle_lock"):
+		laserLocked = !laserLocked
+		print(laserLocked)
 	if running and counter%6==0:
+		counter = 0
 		_passive_income()
 
 
@@ -74,10 +97,21 @@ func place_tower(tower,pos):
 #ENEMY SPAWNING
 #-------------------------------------------------------------------------------------------------------------
 
-# GET WAVES
-
 func _spawn_enemy(enemy : Enemy):
 	level._spawn(enemy)
+
+# GET WAVES
+
+func _wave(w : Waves):
+	for subwave : Subwaves in w.subwaves:
+		_subwave(subwave)
+		
+
+func _subwave(sw : Subwaves):
+	await get_tree().create_timer(sw.pause).timeout
+	for i in range(sw.enemy_count):
+			_spawn_enemy(DUMMY.instantiate())
+			await get_tree().create_timer(sw.spawn_int).timeout
 
 #ENERGY MANAGEMENT
 #-------------------------------------------------------------------------------------------------------------
@@ -97,8 +131,6 @@ func _spend(value : int) -> bool:
 		#HAS ENOUGH
 		_energy(energy-value)
 		return true
-
-
 
 #LIVES
 #-------------------------------------------------------------------------------------------------------------

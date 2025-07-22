@@ -10,7 +10,7 @@ radius = 35.0143
 [node name="dummy" type="CharacterBody2D" node_paths=PackedStringArray("health")]
 script = ExtResource("1_xmspm")
 health = NodePath("Health")
-speed = 200
+speed = 100
 damage = 10
 metadata/_custom_type_script = "uid://1h7h644haycl"
 
@@ -22,4 +22,4 @@ texture = ExtResource("1_gtj52")
 shape = SubResource("CircleShape2D_xmspm")
 
 [node name="Health" parent="." instance=ExtResource("3_0umox")]
-maxhp = 1000
+maxhp = 2000

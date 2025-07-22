@@ -1,9 +1,9 @@
 extends Tower
 
-#Acid gunner
-
 const BULLET = preload("res://projectiles/bullet.tscn")
 @onready var button = $upgrade/upgrade/HBoxContainer/Button
+
+var targets = []
 
 func _set_stats():
 	attack = stats.attack[level]
@@ -26,7 +26,7 @@ func _process(delta: float) -> void:
 	if targets.size():
 		look_at(targets[0].global_position)
 		if bullets and canAttack:
-			_attack(targets[0])
+			_attacks(targets[0])
 			bullets -= 1
 			await get_tree().create_timer(1).timeout
 			bullets += 1
@@ -34,7 +34,7 @@ func _process(delta: float) -> void:
 	
 	#Turn towards target
 
-func _attack(enemy : Enemy):
+func _attacks(enemy : Enemy):
 	canAttack = false
 	var _bullet = BULLET.instantiate()
 	get_parent().add_child(_bullet)

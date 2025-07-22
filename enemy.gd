@@ -3,6 +3,8 @@ class_name Enemy
 
 enum TYPES{PLASTIC, ORGANIC, METAL, RADIOACTIVE}
 
+enum CLASS{NORMAL, ELITE, BOSS}
+
 @export var health : Health
 @export var speed : int
 
@@ -10,6 +12,8 @@ var move_speed : float
 
 @export var damage : int
 @export var enemy_type : TYPES
+
+@export var enemy_class : CLASS
 
 @onready var pathfollow : PathFollow2D = self.get_parent()
 

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmuqa1ervdj8t"]
+
+[ext_resource type="Script" uid="uid://blqha0hid75ar" path="res://scripts/uitowers/ui_compactor.gd" id="1_r7btj"]
+[ext_resource type="Texture2D" uid="uid://dvorxxvwbenym" path="res://assets/towers/compactor/compactor1.png" id="2_r7btj"]
+
+[node name="UITower" type="Panel"]
+custom_minimum_size = Vector2(16, 16)
+offset_right = 16.0
+offset_bottom = 16.0
+script = ExtResource("1_r7btj")
+metadata/_custom_type_script = "uid://crh00vhn1yank"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 8)
+scale = Vector2(0.0273438, 0.0273438)
+texture = ExtResource("2_r7btj")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

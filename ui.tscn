@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5g1vypg8anpa"]
+[gd_scene load_steps=6 format=3 uid="uid://c5g1vypg8anpa"]
 
 [ext_resource type="Script" uid="uid://d0lh2onjg8ppw" path="res://ui.gd" id="1_27fn8"]
 [ext_resource type="Script" uid="uid://4nchj0s0iu0d" path="res://label_manager.gd" id="1_m6e0p"]
 [ext_resource type="PackedScene" uid="uid://cb3sktd27im3j" path="res://uitowers/ui_acid_gunner.tscn" id="3_27fn8"]
 [ext_resource type="PackedScene" uid="uid://c1lh5hjkak5u0" path="res://uitowers/ui_ice_tower.tscn" id="4_nltto"]
+[ext_resource type="PackedScene" uid="uid://cmuqa1ervdj8t" path="res://uitowers/ui_compactor.tscn" id="5_ibotj"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_27fn8")
@@ -43,4 +44,7 @@ theme_override_constants/v_separation = 10
 layout_mode = 2
 
 [node name="UITower2" parent="Panel/FlowContainer" instance=ExtResource("4_nltto")]
+layout_mode = 2
+
+[node name="UITower3" parent="Panel/FlowContainer" instance=ExtResource("5_ibotj")]
 layout_mode = 2

@@ -9,7 +9,13 @@ func _slow_projectile(target : Enemy):
 	print(_bullet.slow.level)
 	_bullet.attack = self.attack
 	_bullet.global_position = self.global_position
-	_bullet.target = target
+	_bullet.tower_pos = self.global_position
+	_bullet.target = target.global_position
+	
+	_bullet.destDis = self.global_position.distance_to(target.global_position)
+	
+	_bullet.dir = (target.global_position - self.global_position).normalized()
+	
 	await get_tree().create_timer(0.1).timeout
 	canAttack = true
 
@@ -23,25 +29,27 @@ func _ready() -> void:
 	get_node("upgrade/path").visible = false
 
 func _process(delta: float) -> void:
-	if targets.size():
+	if enemies:
+		var my_enemies = []
+				
+		for i in detection.get_overlapping_bodies():
+			if i is Enemy:
+				my_enemies.append(i)
+			
+		my_enemies.sort_custom(_sorting)
 		#Turn towards target
-		look_at(targets[0].global_position)
+		look_at(my_enemies[0].global_position)
 		if bullets and canAttack:
-			_slow_projectile(targets[0])
+			_slow_projectile(my_enemies[0])
 			bullets -= 1
 			await get_tree().create_timer(reload_time).timeout
 			bullets += 1
 
 func _on_detection_enemy_entered(enemy: Enemy) -> void:
-	var temptargets := detection.get_overlapping_bodies()
-	for i in temptargets:
-		if i is Enemy and not targets.has(i):
-			targets.append(i)
-	targets.sort_custom(_sorting)
+	enemies += 1
 
 func _on_detection_enemy_exited(enemy: Enemy) -> void:
-	if targets.has(enemy):
-		targets.erase(enemy)
+	enemies -= 1
 
 func _on_button_button_down() -> void:
 	_upgrade()
@@ -56,7 +64,19 @@ func _on_static_body_2d_input_event(viewport: Node, event: InputEvent, shape_idx
 				child.get_node("upgrade/path").hide()
 		if level < 2:
 			get_node("upgrade/upgrade").visible = !get_node("upgrade/upgrade").visible
-		elif level == 2:
+		elif level >= 2:
 			get_node("upgrade/path").visible = !get_node("upgrade/path").visible
 		get_node("upgrade/upgrade").global_position = self.global_position + Vector2(-96, 24)
 		get_node("upgrade/path").global_position = self.global_position + Vector2(-96, 24)
+
+
+func _on_path_1_button_down() -> void:
+	if not get_tree().get_root().get_node("base").level4s[3] and level == 2:
+		_upgrade_path(true)
+		get_tree().get_root().get_node("base").level4s[3] = true
+
+
+func _on_path_2_button_down() -> void:
+	if not get_tree().get_root().get_node("base").level4s[4] and level == 2:
+		_upgrade_path(false)
+		get_tree().get_root().get_node("base").level4s[4] = true

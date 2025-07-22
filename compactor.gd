@@ -1,23 +1,50 @@
 extends Tower
-class_name NEWTOWER # YOUR OWN TOWER NAME HERE
+class_name Compactor
+
+# Trash compactor
 
 func _ready() -> void:
 	#Set stats
 	level = 0
 	_set_stats()
-	_set_slow()
-	proj = preload("res://projectiles/bullet.tscn") # PROJECTILE HERE
 	get_node("upgrade/upgrade").visible = false
 	get_node("upgrade/path").visible = false
 
+
+func _death_effect(enemy: Enemy):
+	pass
+
+func _compact(enemy : Enemy):
+	if enemy.enemy_class == 0:
+		enemy.queue_free()
+
+var counter := 0
+
 func _process(delta: float) -> void:
-		pass
+	counter+=1	
+	if enemies:
+		if bullets and canAttack:
+			var my_enemies = []
+			
+			for i in detection.get_overlapping_bodies():
+				if i is Enemy:
+					my_enemies.append(i)
+			
+			my_enemies.sort_custom(_sorting)
+			
+			_compact(my_enemies[0])
+			
+			bullets -= 1
+			await get_tree().create_timer(reload_time).timeout
+			bullets += 1
+	if counter%99 == 0:
+		counter = 0
 
 func _on_detection_enemy_entered(enemy: Enemy) -> void:
-	pass
+	enemies += 1
 
 func _on_detection_enemy_exited(enemy: Enemy) -> void:
-	pass
+	enemies -= 1
 
 func _on_button_button_down() -> void:
 	_upgrade()

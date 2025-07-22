@@ -7,8 +7,6 @@ class_name Tower
 @export var detection : Detection
 @export var stats : TowerStats
 
-var targets : Array
-
 # Stat variables:
 
 var level : int
@@ -47,14 +45,20 @@ var slow : Slow
 
 var canAttack : bool = true
 
+var enemies := 0
 
 func _shoot_projectile(target : Enemy):
+	_attack(target,attack)
+
+func _attack(target : Enemy, atk : Attack):
 	canAttack = false
 	var _bullet = proj.instantiate()
 	get_parent().add_child(_bullet)
-	_bullet.attack = self.attack
+	_bullet.attack = atk
 	_bullet.global_position = self.global_position
-	_bullet.target = target
+	_bullet.homingTarget = target
+	_bullet.dir = (target.global_position-self.global_position).normalized()
+	_bullet.tower_pos = self.global_position
 	await get_tree().create_timer(0.1).timeout
 	canAttack = true
 
@@ -110,7 +114,18 @@ func _upgrade_path(isFirstPath : bool):
 func _ready() -> void:
 	pass
 
+# Prioritises furthest enemy
+
 func _sorting(a : Enemy, b : Enemy):
-	if a.progress > b.progress:
+	if a and b:
+		if a.progress > b.progress:
+			return true
+	return false
+
+# Prioritises highest health enemy
+
+func _sorting2(a : Enemy, b : Enemy):
+	if a and b:
+		if a.health.current_hp > b.health.current_hp:
 			return true
 	return false

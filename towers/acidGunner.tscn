@@ -1,10 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://wq6vea0d1v23"]
+[gd_scene load_steps=19 format=3 uid="uid://wq6vea0d1v23"]
 
 [ext_resource type="Script" uid="uid://m4cxid0wu1xo" path="res://scripts/towers/acid_gunner.gd" id="1_yfjc3"]
 [ext_resource type="Resource" uid="uid://c1qo0d00gqo6q" path="res://assets/towers/acid/acid.tres" id="2_yk3fi"]
 [ext_resource type="Resource" uid="uid://n8rrk8bf3vqj" path="res://stats/acidGunner.tres" id="3_08ekg"]
 [ext_resource type="Texture2D" uid="uid://bvmlnl4mclxxh" path="res://assets/towers/acid/acid1.png" id="4_juseu"]
+[ext_resource type="Script" uid="uid://ctdq6qm65fkrg" path="res://detection.gd" id="4_yk3fi"]
 [ext_resource type="PackedScene" uid="uid://dqe1l4uund6b0" path="res://detection.tscn" id="5_yc038"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yk3fi"]
+size = Vector2(1120, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7wgfo"]
 size = Vector2(64, 64)
@@ -55,6 +59,16 @@ detection = NodePath("detection")
 stats = ExtResource("3_08ekg")
 sprite = NodePath("Sprite2D")
 metadata/_custom_type_script = "uid://crokpos8m5eeu"
+
+[node name="laserArea" type="Area2D" parent="."]
+script = ExtResource("4_yk3fi")
+metadata/_custom_type_script = "uid://ctdq6qm65fkrg"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="laserArea"]
+position = Vector2(592, 0)
+shape = SubResource("RectangleShape2D_yk3fi")
+
+[node name="LaserLine" type="Line2D" parent="."]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 input_pickable = true

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Sprites" load_steps=5 format=3 uid="uid://b5cuoltc4653s"]
+
+[ext_resource type="Script" uid="uid://crs8tg1gev5py" path="res://sprites.gd" id="1_0isxi"]
+[ext_resource type="Texture2D" uid="uid://dvorxxvwbenym" path="res://assets/towers/compactor/compactor1.png" id="2_mfhce"]
+[ext_resource type="Texture2D" uid="uid://cbwj4k57c2coj" path="res://assets/towers/compactor/compactor2.png" id="3_6w4uf"]
+[ext_resource type="Texture2D" uid="uid://bx043ix0ij83u" path="res://assets/towers/compactor/compactor3.png" id="4_i75ox"]
+
+[resource]
+script = ExtResource("1_0isxi")
+textures = Array[Texture2D]([ExtResource("2_mfhce"), ExtResource("3_6w4uf"), ExtResource("4_i75ox")])
+metadata/_custom_type_script = "uid://crs8tg1gev5py"

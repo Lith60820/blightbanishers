@@ -8,7 +8,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_ul117"]
 radius = 80.0062
 
-[node name="bullet" type="CharacterBody2D" node_paths=PackedStringArray("detection", "retarget", "freeze")]
+[node name="snowball" type="CharacterBody2D" node_paths=PackedStringArray("detection", "retarget", "freeze")]
 script = ExtResource("1_4lu8y")
 speed = 500
 detection = NodePath("detection")

@@ -8,11 +8,22 @@ class_name Projectile
 
 @export var freeze : Detection
 
-var target : CharacterBody2D
+var homingTarget : CharacterBody2D = null
+var target : Vector2
+
 var enemy_detected := false
 
 @export var doISlow := false
 var slow : Slow
+
+@export var isHoming := false
+
+var dir : Vector2
+
+var tower_pos : Vector2
+
+var destDis
+var curDis
 
 func _damage():
 	enemy_detected = true
@@ -29,13 +40,16 @@ func _damage():
 				for f in freezetargets:
 					if f is Enemy:
 						f._slow(slow)
-		self.queue_free()
+	self.queue_free()
 
 func _physics_process(delta: float) -> void:
-	if target:
-		_move()
+	if isHoming:
+		if homingTarget:
+			_move()
+		else:
+			_retarget()
 	else:
-		_retarget()
+		_move()
 	
 	if enemy_detected:
 		_damage()
@@ -44,11 +58,20 @@ func _retarget():
 	var temptargets := retarget.get_overlapping_bodies()
 	for i in temptargets:
 		if i is Enemy:
-			target = i
+			homingTarget = i
 			return
 	queue_free()
 
 func _move():
-	var dir : Vector2 = (target.global_position - self.global_position).normalized()
-	self.velocity = dir * speed
-	move_and_slide()
+	if isHoming:
+		dir = (homingTarget.global_position - self.global_position).normalized()
+		self.velocity = dir * speed
+		move_and_slide()
+	else:
+		curDis = tower_pos.distance_to(self.global_position)
+		if curDis > destDis:
+			print("OUT OF RANGE")
+			_damage()
+		
+		self.velocity = dir * speed
+		move_and_slide()

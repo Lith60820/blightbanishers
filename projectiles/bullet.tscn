@@ -17,6 +17,7 @@ attack = SubResource("Resource_b7duk")
 speed = 500
 detection = NodePath("detection")
 retarget = NodePath("retarget")
+isHoming = true
 metadata/_custom_type_script = "uid://b1ypd2lu7r0l4"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
