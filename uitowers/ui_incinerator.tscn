@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://ch0bll40kl5pk"]
+
+[ext_resource type="Script" uid="uid://my4l5v4hbkh2" path="res://scripts/uitowers/ui_acid_gunner.gd" id="1_vii2m"]
+[ext_resource type="Texture2D" uid="uid://bvmlnl4mclxxh" path="res://assets/towers/acid/acid1.png" id="2_4qsak"]
+
+[node name="UITower" type="Panel"]
+custom_minimum_size = Vector2(16, 16)
+offset_right = 16.0
+offset_bottom = 16.0
+script = ExtResource("1_vii2m")
+metadata/_custom_type_script = "uid://crh00vhn1yank"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 8)
+scale = Vector2(0.0273438, 0.0273438)
+texture = ExtResource("2_4qsak")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

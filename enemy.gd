@@ -28,6 +28,9 @@ func _slow(slow : Slow):
 	await get_tree().create_timer(slow.duration).timeout
 	slows.erase(slow)
 
+func _dot():
+	pass
+
 func _ready() -> void:
 	move_speed = speed
 

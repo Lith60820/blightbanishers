@@ -1,12 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://b55bvlml7xafj"]
+[gd_scene load_steps=17 format=3 uid="uid://buin7ymi8uwpq"]
 
-[ext_resource type="Script" uid="uid://181oqxy45w3h" path="res://scripts/towers/compactor.gd" id="1_wb07f"]
-[ext_resource type="Resource" uid="uid://b5cuoltc4653s" path="res://assets/towers/compactor/compactor.tres" id="2_uwvbr"]
-[ext_resource type="Resource" uid="uid://iyes0cdmga0y" path="res://stats/compactor.tres" id="3_85y77"]
-[ext_resource type="Texture2D" uid="uid://dvorxxvwbenym" path="res://assets/towers/compactor/compactor1.png" id="4_uwvbr"]
-[ext_resource type="PackedScene" uid="uid://dqe1l4uund6b0" path="res://detection.tscn" id="6_2ji83"]
+[ext_resource type="Script" uid="uid://181oqxy45w3h" path="res://scripts/towers/compactor.gd" id="1_l2xjs"]
+[ext_resource type="Resource" uid="uid://b5cuoltc4653s" path="res://assets/towers/compactor/compactor.tres" id="2_rrtvd"]
+[ext_resource type="Resource" uid="uid://iyes0cdmga0y" path="res://stats/compactor.tres" id="3_bib0e"]
+[ext_resource type="Texture2D" uid="uid://dvorxxvwbenym" path="res://assets/towers/compactor/compactor1.png" id="4_e86i3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7wgfo"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3p4v5"]
 size = Vector2(64, 64)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yfjc3"]
@@ -48,11 +50,11 @@ bg_color = Color(0.172833, 0.172833, 0.172833, 1)
 bg_color = Color(0.369, 0.384033, 0.41, 1)
 
 [node name="tower" type="Node2D" node_paths=PackedStringArray("detection", "sprite")]
-script = ExtResource("1_wb07f")
-sprites = ExtResource("2_uwvbr")
-tower_name = "Compactor"
-detection = NodePath("detection")
-stats = ExtResource("3_85y77")
+script = ExtResource("1_l2xjs")
+sprites = ExtResource("2_rrtvd")
+tower_name = "Incinerator"
+detection = NodePath("")
+stats = ExtResource("3_bib0e")
 sprite = NodePath("Sprite2D")
 metadata/_custom_type_script = "uid://crokpos8m5eeu"
 
@@ -65,10 +67,12 @@ shape = SubResource("RectangleShape2D_7wgfo")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
 scale = Vector2(0.125, 0.125)
-texture = ExtResource("4_uwvbr")
+texture = ExtResource("4_e86i3")
 
-[node name="detection" parent="." instance=ExtResource("6_2ji83")]
-scale = Vector2(20, 20)
+[node name="apply" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="apply"]
+shape = SubResource("RectangleShape2D_3p4v5")
 
 [node name="upgrade" type="Node" parent="."]
 
@@ -183,8 +187,6 @@ text = "100"
 horizontal_alignment = 2
 
 [connection signal="input_event" from="StaticBody2D" to="." method="_on_static_body_2d_input_event"]
-[connection signal="enemy_entered" from="detection" to="." method="_on_detection_enemy_entered"]
-[connection signal="enemy_exited" from="detection" to="." method="_on_detection_enemy_exited"]
 [connection signal="button_down" from="upgrade/upgrade/upgrade" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="upgrade/upgrade/upgrade" to="." method="_on_upgrade_button_down"]
 [connection signal="button_down" from="upgrade/path/path1" to="." method="_on_path_1_button_down"]
