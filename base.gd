@@ -45,6 +45,15 @@ var level4s : Array[bool] = [
 ]
 
 
+var enemies : Array[PackedScene] = [
+	preload('res://dummy.tscn'),
+	preload('res://dummy.tscn'),
+	preload('res://enemies/plasticsoldier.tscn'),
+	preload('res://enemies/plasticcorporal.tscn'),
+	preload('res://enemies/plasticsergeant.tscn'),
+	preload('res://enemies/plasticliutenant.tscn')
+]
+
 #INITIALISE
 
 func _add_level():
@@ -62,10 +71,6 @@ func _ready() -> void:
 	counter = 0
 	_wave(wave)
 
-
-#TOWER PLACEMENTS
-#-------------------------------------------------------------------------------------------------------------
-
 func _process(delta: float) -> void:
 	counter+=1
 	if Input.is_action_just_pressed("rc"):
@@ -77,6 +82,9 @@ func _process(delta: float) -> void:
 	if running and counter%6==0:
 		counter = 0
 		_passive_income()
+
+#TOWER PLACEMENTS
+#-------------------------------------------------------------------------------------------------------------
 
 
 func is_tile_placeable(cell_pos: Vector2i) -> bool:
@@ -110,18 +118,22 @@ func _wave(w : Waves):
 func _subwave(sw : Subwaves):
 	await get_tree().create_timer(sw.pause).timeout
 	for i in range(sw.enemy_count):
-			_spawn_enemy(DUMMY.instantiate())
+			_spawn_enemy(enemies[sw.enemy_id].instantiate())
 			await get_tree().create_timer(sw.spawn_int).timeout
 
 #ENERGY MANAGEMENT
 #-------------------------------------------------------------------------------------------------------------
 
-func _energy(value : int):
+func _income(value : int):
+	energy += value
+	ui._update(1,energy)
+
+func _set_energy(value : int):
 	energy = value
-	ui._update(1,value)
+	ui._update(1,energy)
 
 func _passive_income():
-	_energy(energy + 1)
+	_income(1)
 
 func _spend(value : int) -> bool:
 	if energy < value:
@@ -129,7 +141,7 @@ func _spend(value : int) -> bool:
 		return false
 	else:
 		#HAS ENOUGH
-		_energy(energy-value)
+		_set_energy(energy-value)
 		return true
 
 #LIVES

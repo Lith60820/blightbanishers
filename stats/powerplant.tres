@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="TowerStats" load_steps=8 format=3 uid="uid://ccett0a17b6et"]
+
+[ext_resource type="Script" uid="uid://bu16u1pmgro7h" path="res://attack.gd" id="1_rvtot"]
+[ext_resource type="Script" uid="uid://0stclqkftpt1" path="res://towerstats.gd" id="2_nave2"]
+
+[sub_resource type="Resource" id="Resource_rvtot"]
+script = ExtResource("1_rvtot")
+damage = 0
+attack_type = 0
+metadata/_custom_type_script = "uid://bu16u1pmgro7h"
+
+[sub_resource type="Resource" id="Resource_nave2"]
+script = ExtResource("1_rvtot")
+damage = 0
+attack_type = 0
+metadata/_custom_type_script = "uid://bu16u1pmgro7h"
+
+[sub_resource type="Resource" id="Resource_fxgtd"]
+script = ExtResource("1_rvtot")
+damage = 0
+attack_type = 0
+metadata/_custom_type_script = "uid://bu16u1pmgro7h"
+
+[sub_resource type="Resource" id="Resource_xg0sk"]
+script = ExtResource("1_rvtot")
+damage = 0
+attack_type = 0
+metadata/_custom_type_script = "uid://bu16u1pmgro7h"
+
+[sub_resource type="Resource" id="Resource_0d0is"]
+script = ExtResource("1_rvtot")
+damage = 0
+attack_type = 0
+metadata/_custom_type_script = "uid://bu16u1pmgro7h"
+
+[resource]
+script = ExtResource("2_nave2")
+tower_names = Array[String](["Power Plant", "Power 2", "Power 3", "Power 4"])
+attack = Array[ExtResource("1_rvtot")]([SubResource("Resource_rvtot"), SubResource("Resource_nave2"), SubResource("Resource_fxgtd"), SubResource("Resource_xg0sk"), SubResource("Resource_0d0is")])
+attack_int = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0])
+bullets = Array[int]([0, 0, 0, 0, 0])
+reload_time = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0])
+cost = 1
+upgrade_costs = Array[int]([1, 1, 1, 1, 0])
+metadata/_custom_type_script = "uid://0stclqkftpt1"

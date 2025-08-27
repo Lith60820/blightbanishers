@@ -1,14 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://buin7ymi8uwpq"]
+[gd_scene load_steps=16 format=3 uid="uid://bh320fmjpmrff"]
 
-[ext_resource type="Script" uid="uid://181oqxy45w3h" path="res://scripts/towers/compactor.gd" id="1_l2xjs"]
-[ext_resource type="Resource" uid="uid://b5cuoltc4653s" path="res://assets/towers/compactor/compactor.tres" id="2_rrtvd"]
-[ext_resource type="Resource" uid="uid://iyes0cdmga0y" path="res://stats/compactor.tres" id="3_bib0e"]
-[ext_resource type="Texture2D" uid="uid://dvorxxvwbenym" path="res://assets/towers/compactor/compactor1.png" id="4_e86i3"]
+[ext_resource type="Script" uid="uid://c5q60ujsfmfqf" path="res://scripts/towers/powerplant.gd" id="1_uqwp0"]
+[ext_resource type="Resource" uid="uid://bpoo1p7fywu50" path="res://assets/towers/ice/ice.tres" id="2_rydfs"]
+[ext_resource type="Resource" uid="uid://ccett0a17b6et" path="res://stats/powerplant.tres" id="3_rydfs"]
+[ext_resource type="Texture2D" uid="uid://dvorxxvwbenym" path="res://assets/towers/compactor/compactor1.png" id="4_71wol"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7wgfo"]
-size = Vector2(64, 64)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3p4v5"]
 size = Vector2(64, 64)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yfjc3"]
@@ -50,10 +47,10 @@ bg_color = Color(0.172833, 0.172833, 0.172833, 1)
 bg_color = Color(0.369, 0.384033, 0.41, 1)
 
 [node name="tower" type="Node2D" node_paths=PackedStringArray("sprite")]
-script = ExtResource("1_l2xjs")
-sprites = ExtResource("2_rrtvd")
-tower_name = "Incinerator"
-stats = ExtResource("3_bib0e")
+script = ExtResource("1_uqwp0")
+sprites = ExtResource("2_rydfs")
+tower_name = "Power Plant"
+stats = ExtResource("3_rydfs")
 sprite = NodePath("Sprite2D")
 metadata/_custom_type_script = "uid://crokpos8m5eeu"
 
@@ -66,12 +63,7 @@ shape = SubResource("RectangleShape2D_7wgfo")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
 scale = Vector2(0.125, 0.125)
-texture = ExtResource("4_e86i3")
-
-[node name="apply" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="apply"]
-shape = SubResource("RectangleShape2D_3p4v5")
+texture = ExtResource("4_71wol")
 
 [node name="upgrade" type="Node" parent="."]
 

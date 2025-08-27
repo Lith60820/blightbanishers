@@ -5,7 +5,7 @@
 
 [sub_resource type="Resource" id="Resource_ojd7x"]
 script = ExtResource("2_8gd6a")
-enemy_id = 1
+enemy_id = 2
 enemy_count = 5
 spawn_int = 1.0
 pause = 3.0
@@ -13,7 +13,7 @@ metadata/_custom_type_script = "uid://c4bb8nveynidh"
 
 [sub_resource type="Resource" id="Resource_8gd6a"]
 script = ExtResource("2_8gd6a")
-enemy_id = 1
+enemy_id = 4
 enemy_count = 10
 spawn_int = 0.5
 pause = 11.0
@@ -21,7 +21,7 @@ metadata/_custom_type_script = "uid://c4bb8nveynidh"
 
 [sub_resource type="Resource" id="Resource_7wxl4"]
 script = ExtResource("2_8gd6a")
-enemy_id = 1
+enemy_id = 5
 enemy_count = 50
 spawn_int = 2.0
 pause = 19.0

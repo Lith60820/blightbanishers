@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://dd5aq5uf8ia3x"]
+
+[ext_resource type="Script" uid="uid://1h7h644haycl" path="res://enemy.gd" id="1_0l2m8"]
+[ext_resource type="Texture2D" uid="uid://co6kt8au4i0t2" path="res://player.png" id="2_rlmnh"]
+[ext_resource type="PackedScene" uid="uid://rp1wpw8o0bh" path="res://health.tscn" id="3_d0t1d"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xmspm"]
+radius = 35.0143
+
+[node name="dummy" type="CharacterBody2D" node_paths=PackedStringArray("health")]
+script = ExtResource("1_0l2m8")
+health = NodePath("Health")
+speed = 50
+damage = 10
+enemy_class = 1
+metadata/_custom_type_script = "uid://1h7h644haycl"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -6)
+texture = ExtResource("2_rlmnh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xmspm")
+
+[node name="Health" parent="." instance=ExtResource("3_d0t1d")]
+maxhp = 2000
