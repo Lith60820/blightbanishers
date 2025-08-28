@@ -5,8 +5,6 @@ class_name PowerPlant
 
 @onready var base = get_tree().get_root().get_node("base")
 
-var counter := 0
-
 func _ready() -> void:
 	#Set stats
 	level = 0
@@ -26,8 +24,7 @@ func _generate_income(value : int):
 	base._income(value)
 
 func _process(delta: float) -> void:
-	counter+=1
-	if counter%6==0:
+	if base.running and base.counter%6==0:
 		_generate_income(1)
 
 func _on_detection_enemy_entered(enemy: Enemy) -> void:

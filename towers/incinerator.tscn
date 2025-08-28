@@ -1,8 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://buin7ymi8uwpq"]
+[gd_scene load_steps=15 format=3 uid="uid://buin7ymi8uwpq"]
 
-[ext_resource type="Script" uid="uid://181oqxy45w3h" path="res://scripts/towers/compactor.gd" id="1_l2xjs"]
-[ext_resource type="Resource" uid="uid://b5cuoltc4653s" path="res://assets/towers/compactor/compactor.tres" id="2_rrtvd"]
-[ext_resource type="Resource" uid="uid://iyes0cdmga0y" path="res://stats/compactor.tres" id="3_bib0e"]
+[ext_resource type="Script" uid="uid://vjcg671g3vjq" path="res://scripts/towers/incinerator.gd" id="1_26phb"]
 [ext_resource type="Texture2D" uid="uid://dvorxxvwbenym" path="res://assets/towers/compactor/compactor1.png" id="4_e86i3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7wgfo"]
@@ -49,12 +47,8 @@ bg_color = Color(0.172833, 0.172833, 0.172833, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jexcl"]
 bg_color = Color(0.369, 0.384033, 0.41, 1)
 
-[node name="tower" type="Node2D" node_paths=PackedStringArray("sprite")]
-script = ExtResource("1_l2xjs")
-sprites = ExtResource("2_rrtvd")
-tower_name = "Incinerator"
-stats = ExtResource("3_bib0e")
-sprite = NodePath("Sprite2D")
+[node name="tower" type="Node2D"]
+script = ExtResource("1_26phb")
 metadata/_custom_type_script = "uid://crokpos8m5eeu"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

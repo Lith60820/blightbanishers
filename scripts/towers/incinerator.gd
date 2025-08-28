@@ -1,6 +1,8 @@
 extends Tower
 class_name Incinerator
 
+# Incinerator
+
 func _ready() -> void:
 	#Set stats
 	level = 0

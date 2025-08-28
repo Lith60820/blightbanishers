@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="TrackTowerStats" load_steps=4 format=3 uid="uid://vnolum3evj6f"]
+
+[ext_resource type="Script" uid="uid://bu16u1pmgro7h" path="res://attack.gd" id="1_m1h5a"]
+[ext_resource type="Script" uid="uid://d2lur6ij5ib11" path="res://dot.gd" id="2_77n0u"]
+[ext_resource type="Script" uid="uid://c7yyh1v2pk7wp" path="res://tracktowerstats.gd" id="3_h3e1v"]
+
+[resource]
+script = ExtResource("3_h3e1v")
+tower_names = Array[String]([])
+attack = Array[ExtResource("1_m1h5a")]([])
+attack_int = Array[float]([])
+bullets = Array[int]([])
+reload_time = Array[float]([])
+dots = Array[ExtResource("2_77n0u")]([])
+cost = 0
+upgrade_costs = Array[int]([])
+metadata/_custom_type_script = "uid://c7yyh1v2pk7wp"

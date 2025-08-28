@@ -55,6 +55,7 @@ var enemies : Array[PackedScene] = [
 ]
 
 #INITIALISE
+#-------------------------------------------------------------------------------------------------------------
 
 func _add_level():
 	level = levels[level_id]
@@ -86,12 +87,26 @@ func _process(delta: float) -> void:
 #TOWER PLACEMENTS
 #-------------------------------------------------------------------------------------------------------------
 
-
 func is_tile_placeable(cell_pos: Vector2i) -> bool:
 	var tileData = tilemap.get_cell_tile_data(cell_pos)
 	if tileData:
 		return tileData.get_custom_data("placeable") and not occupied.has(cell_pos)
 	return false
+
+func is_track_placeable(cell_pos: Vector2i) -> bool:
+	var tileData = tilemap.get_cell_tile_data(cell_pos)
+	if tileData:
+		return not tileData.get_custom_data("placeable") and not occupied.has(cell_pos)
+	return false
+
+func place_track_tower(tower,pos):
+	var cell_pos = tilemap.local_to_map(pos)
+	if is_track_placeable(cell_pos) and _spend(tower.stats.cost):
+		var world_pos = tilemap.map_to_local(cell_pos)
+		tower.position = world_pos
+		add_child(tower)
+		occupied[cell_pos] = true
+		tower.placed = true
 
 func place_tower(tower,pos):
 	var cell_pos = tilemap.local_to_map(pos)
@@ -113,7 +128,6 @@ func _spawn_enemy(enemy : Enemy):
 func _wave(w : Waves):
 	for subwave : Subwaves in w.subwaves:
 		_subwave(subwave)
-		
 
 func _subwave(sw : Subwaves):
 	await get_tree().create_timer(sw.pause).timeout
