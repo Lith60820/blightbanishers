@@ -39,8 +39,8 @@ func _laser(target: Vector2,tick : int):
 	for i in results:
 		if i is Enemy:
 			i.health._damage(self.attack.damage)
-	
-	
+
+
 var counter := 0
 
 func _process(delta: float) -> void:
@@ -62,7 +62,7 @@ func _process(delta: float) -> void:
 				my_enemies.sort_custom(_sorting2)
 				
 				var pattack := self.attack
-				pattack.damage = max(my_enemies[0].health.current_hp * 0.1,10)
+				pattack.damage = max(my_enemies[0].health.current_hp * 0.05,10)
 				
 				#Turn towards target
 				look_at(my_enemies[0].global_position)

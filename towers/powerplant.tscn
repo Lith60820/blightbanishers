@@ -178,7 +178,7 @@ text = "100"
 horizontal_alignment = 2
 
 [connection signal="input_event" from="StaticBody2D" to="." method="_on_static_body_2d_input_event"]
-[connection signal="button_down" from="upgrade/upgrade/upgrade" to="." method="_on_upgrade_button_down"]
 [connection signal="button_down" from="upgrade/upgrade/upgrade" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="upgrade/upgrade/upgrade" to="." method="_on_upgrade_button_down"]
 [connection signal="button_down" from="upgrade/path/path1" to="." method="_on_path_1_button_down"]
 [connection signal="button_down" from="upgrade/path/path2" to="." method="_on_path_2_button_down"]

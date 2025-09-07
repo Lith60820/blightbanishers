@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c5g1vypg8anpa"]
+[gd_scene load_steps=9 format=3 uid="uid://c5g1vypg8anpa"]
 
 [ext_resource type="Script" uid="uid://d0lh2onjg8ppw" path="res://ui.gd" id="1_27fn8"]
 [ext_resource type="Script" uid="uid://4nchj0s0iu0d" path="res://label_manager.gd" id="1_m6e0p"]
@@ -6,7 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://c1lh5hjkak5u0" path="res://uitowers/ui_ice_tower.tscn" id="4_nltto"]
 [ext_resource type="PackedScene" uid="uid://cmuqa1ervdj8t" path="res://uitowers/ui_compactor.tscn" id="5_ibotj"]
 [ext_resource type="PackedScene" uid="uid://b4dxbxnsuabrx" path="res://uitowers/ui_powerplant.tscn" id="6_n5ude"]
-[ext_resource type="Script" uid="uid://dv5gsc6rwqukt" path="res://uitowers/powerplant.gd" id="7_y4yjw"]
+[ext_resource type="Script" uid="uid://dv5gsc6rwqukt" path="res://uitowers/ui_powerplant.gd" id="7_y4yjw"]
+[ext_resource type="PackedScene" uid="uid://ch0bll40kl5pk" path="res://uitowers/ui_incinerator.tscn" id="8_waa4j"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_27fn8")
@@ -54,3 +55,6 @@ layout_mode = 2
 [node name="UITower4" parent="Panel/FlowContainer" instance=ExtResource("6_n5ude")]
 layout_mode = 2
 script = ExtResource("7_y4yjw")
+
+[node name="UITower5" parent="Panel/FlowContainer" instance=ExtResource("8_waa4j")]
+layout_mode = 2

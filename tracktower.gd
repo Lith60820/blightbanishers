@@ -5,16 +5,14 @@ class_name TrackTower
 
 @export var tower_name : String
 @export var detection : Detection
-@export var stats : TowerStats
+@export var stats : TrackTowerStats
 
 # Stat variables:
 
 var level : int
-var attack : Attack
-var attack_int : float
-var max_bullets : int
-var bullets : int
-var reload_time : float
+var dot : DoT
+var uptime : float
+var downtime : float
 
 var placed : bool = false
 
@@ -44,21 +42,16 @@ var canAttack : bool = true
 
 var enemies := 0
 
-
-func _apply_dot():
-	pass
-
+func _apply_dot(enemy : Enemy):
+	enemy._dot(dot)
 
 func _set_slow():
 	slow = slow_stats.slows[level]
 
 func _set_stats():
-	attack = stats.attack[level]
-	attack_int = stats.attack_int[level]
-	if stats.bullets[level] - max_bullets > 0:
-		bullets += (stats.bullets[level] - max_bullets)
-	max_bullets = stats.bullets[level]
-	reload_time = stats.reload_time[level]
+	dot = stats.dots[level]
+	uptime = stats.uptime[level]
+	downtime = stats.downtime[level]
 	nameLabel.text = stats.tower_names[level]
 	nameLabel2.text = stats.tower_names[level]
 	levelLabel.text = "Level: " + str(self.level + 1)
@@ -99,6 +92,9 @@ func _upgrade_path(isFirstPath : bool):
 				_set_slow()
 
 func _ready() -> void:
+	pass
+
+func _process(delta: float) -> void:
 	pass
 
 # Prioritises furthest enemy

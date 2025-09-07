@@ -1,6 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://buin7ymi8uwpq"]
+[gd_scene load_steps=17 format=3 uid="uid://buin7ymi8uwpq"]
 
 [ext_resource type="Script" uid="uid://vjcg671g3vjq" path="res://scripts/towers/incinerator.gd" id="1_26phb"]
+[ext_resource type="Resource" uid="uid://c1qo0d00gqo6q" path="res://assets/towers/acid/acid.tres" id="2_3p4v5"]
+[ext_resource type="Resource" uid="uid://vnolum3evj6f" path="res://stats/incinerator.tres" id="3_l2xjs"]
 [ext_resource type="Texture2D" uid="uid://dvorxxvwbenym" path="res://assets/towers/compactor/compactor1.png" id="4_e86i3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7wgfo"]
@@ -47,8 +49,13 @@ bg_color = Color(0.172833, 0.172833, 0.172833, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jexcl"]
 bg_color = Color(0.369, 0.384033, 0.41, 1)
 
-[node name="tower" type="Node2D"]
+[node name="tower" type="Node2D" node_paths=PackedStringArray("apply", "sprite")]
 script = ExtResource("1_26phb")
+apply = NodePath("apply")
+sprites = ExtResource("2_3p4v5")
+tower_name = "Incin"
+stats = ExtResource("3_l2xjs")
+sprite = NodePath("Sprite2D")
 metadata/_custom_type_script = "uid://crokpos8m5eeu"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -180,7 +187,7 @@ text = "100"
 horizontal_alignment = 2
 
 [connection signal="input_event" from="StaticBody2D" to="." method="_on_static_body_2d_input_event"]
-[connection signal="button_down" from="upgrade/upgrade/upgrade" to="." method="_on_upgrade_button_down"]
 [connection signal="button_down" from="upgrade/upgrade/upgrade" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="upgrade/upgrade/upgrade" to="." method="_on_upgrade_button_down"]
 [connection signal="button_down" from="upgrade/path/path1" to="." method="_on_path_1_button_down"]
 [connection signal="button_down" from="upgrade/path/path2" to="." method="_on_path_2_button_down"]

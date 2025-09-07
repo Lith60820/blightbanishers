@@ -67,7 +67,7 @@ func _ready() -> void:
 	_add_level()
 	current_lives = total_lives
 	ui._update(0,current_lives)
-	energy = 200
+	energy = 0
 	ui._update(1,energy)
 	counter = 0
 	_wave(wave)
@@ -80,7 +80,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("toggle_lock"):
 		laserLocked = !laserLocked
 		print(laserLocked)
-	if running and counter%6==0:
+	if running and counter%60==0:
 		counter = 0
 		_passive_income()
 
@@ -107,6 +107,8 @@ func place_track_tower(tower,pos):
 		add_child(tower)
 		occupied[cell_pos] = true
 		tower.placed = true
+		if tower is Incinerator:
+			tower._uptime()
 
 func place_tower(tower,pos):
 	var cell_pos = tilemap.local_to_map(pos)

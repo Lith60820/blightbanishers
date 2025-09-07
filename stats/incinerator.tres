@@ -1,17 +1,38 @@
-[gd_resource type="Resource" script_class="TrackTowerStats" load_steps=4 format=3 uid="uid://vnolum3evj6f"]
+[gd_resource type="Resource" script_class="TrackTowerStats" load_steps=7 format=3 uid="uid://vnolum3evj6f"]
 
-[ext_resource type="Script" uid="uid://bu16u1pmgro7h" path="res://attack.gd" id="1_m1h5a"]
 [ext_resource type="Script" uid="uid://d2lur6ij5ib11" path="res://dot.gd" id="2_77n0u"]
 [ext_resource type="Script" uid="uid://c7yyh1v2pk7wp" path="res://tracktowerstats.gd" id="3_h3e1v"]
 
+[sub_resource type="Resource" id="Resource_a1j3q"]
+script = ExtResource("2_77n0u")
+level = 1
+duration = 10.0
+metadata/_custom_type_script = "uid://d2lur6ij5ib11"
+
+[sub_resource type="Resource" id="Resource_m1h5a"]
+script = ExtResource("2_77n0u")
+level = 2
+duration = 10.0
+metadata/_custom_type_script = "uid://d2lur6ij5ib11"
+
+[sub_resource type="Resource" id="Resource_77n0u"]
+script = ExtResource("2_77n0u")
+level = 3
+duration = 10.0
+metadata/_custom_type_script = "uid://d2lur6ij5ib11"
+
+[sub_resource type="Resource" id="Resource_h3e1v"]
+script = ExtResource("2_77n0u")
+level = 4
+duration = 10.0
+metadata/_custom_type_script = "uid://d2lur6ij5ib11"
+
 [resource]
 script = ExtResource("3_h3e1v")
-tower_names = Array[String]([])
-attack = Array[ExtResource("1_m1h5a")]([])
-attack_int = Array[float]([])
-bullets = Array[int]([])
-reload_time = Array[float]([])
-dots = Array[ExtResource("2_77n0u")]([])
-cost = 0
-upgrade_costs = Array[int]([])
+tower_names = Array[String](["Incinerator", "Better Incinerator", "Best Incinerator", "", "", ""])
+uptime = Array[float]([5.0, 5.5, 6.0, 0.0, 0.0, 0.0])
+downtime = Array[float]([3.0, 2.5, 2.0, 0.0, 0.0, 0.0])
+dots = Array[ExtResource("2_77n0u")]([SubResource("Resource_a1j3q"), SubResource("Resource_m1h5a"), SubResource("Resource_77n0u"), SubResource("Resource_h3e1v"), null, null])
+cost = 10
+upgrade_costs = Array[int]([0, 0, 0, 0, 0, 0])
 metadata/_custom_type_script = "uid://c7yyh1v2pk7wp"

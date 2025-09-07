@@ -24,7 +24,7 @@ func _generate_income(value : int):
 	base._income(value)
 
 func _process(delta: float) -> void:
-	if base.running and base.counter%6==0:
+	if base.running and base.counter%180==0:
 		_generate_income(1)
 
 func _on_detection_enemy_entered(enemy: Enemy) -> void:

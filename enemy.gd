@@ -19,6 +19,8 @@ var move_speed : float
 
 @onready var pathfollow : PathFollow2D = self.get_parent()
 
+const TESTDOT = preload("res://testdot.tres")
+
 var progress
 
 var slow_levels : Array[float] = [0.0,0.8,0.7,0.6,0.5,0.4,0.3,0.2,0.0]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ch0bll40kl5pk"]
 
-[ext_resource type="Script" uid="uid://my4l5v4hbkh2" path="res://scripts/uitowers/ui_acid_gunner.gd" id="1_vii2m"]
+[ext_resource type="Script" uid="uid://cvjkx3km0xgik" path="res://uitowers/ui_incinerator.gd" id="1_vii2m"]
 [ext_resource type="Texture2D" uid="uid://bvmlnl4mclxxh" path="res://assets/towers/acid/acid1.png" id="2_4qsak"]
 
 [node name="UITower" type="Panel"]

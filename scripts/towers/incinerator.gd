@@ -1,7 +1,12 @@
-extends Tower
+extends TrackTower
 class_name Incinerator
 
 # Incinerator
+
+@onready var base : Base = get_tree().get_root().get_node("base")
+@export var apply : Area2D
+
+var firing := false
 
 func _ready() -> void:
 	#Set stats
@@ -12,8 +17,28 @@ func _ready() -> void:
 
 @onready var applier := $apply
 
+func _uptime():
+	firing = true
+	print("FIRING")
+	sprite.texture = sprites.textures[4]
+	await get_tree().create_timer(self.uptime).timeout
+	_downtime()
+func _downtime():
+	firing = false
+	print("DOWN!!!")
+	sprite.texture = sprites.textures[level]
+	await get_tree().create_timer(self.downtime).timeout
+	_uptime()
+
 func _process(delta: float) -> void:
-		pass
+	if base.counter%24 == 0 and firing:
+		var enemies = []
+		enemies = apply.get_overlapping_bodies()
+		for i in enemies:
+			if i is not Enemy:
+				continue
+			self._apply_dot(i)
+			print("DOT")
 
 func _on_button_button_down() -> void:
 	_upgrade()

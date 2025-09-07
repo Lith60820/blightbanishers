@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DoT" load_steps=2 format=3 uid="uid://b531j3nmwxcja"]
+
+[ext_resource type="Script" uid="uid://d2lur6ij5ib11" path="res://dot.gd" id="1_xi6u6"]
+
+[resource]
+script = ExtResource("1_xi6u6")
+level = 2
+duration = 1000.0
+metadata/_custom_type_script = "uid://d2lur6ij5ib11"
